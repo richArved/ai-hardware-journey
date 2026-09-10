@@ -1,0 +1,5 @@
+Theorie: tau = 1.000000 ms
+Gemessen: tau = 1.000496 ms
+63.2%-Pegel: 3.160603 V
+Kreuzungszeit: 2.000496 ms
+Abweichung: 0.0496 %

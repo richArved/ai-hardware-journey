@@ -1,0 +1,16 @@
+Spannungsteiler, 5 V, zwei 1 kΩ Widerstände, 1 verbraucher 
+V1 in 0 DC 5
+R1 in out 1k
+R2 out 0 1k
+RL out 0 1k
+
+.control
+set wr_singlescale
+set wr_vecnames
+op
+print v(in) v(out) i(V1)
+dc V1 0 5 0.1
+wrdata results/belastet_dc.txt v(in) v(out) i(V1)
+quit
+.endc
+.end

@@ -1,0 +1,4 @@
+grundaufgabe, A: Theorie 1.0000 ms; Laden 1.0005 ms; Entladen 1.0000 ms; Ustart 4.997249 V; 36,8%-Pegel 1.838385 V
+grundaufgabe, B: Theorie 3.3000 ms; Laden 3.3005 ms; Entladen 3.3000 ms; Ustart 4.757841 V; 36,8%-Pegel 1.750312 V
+zusatzversuch, A: Theorie 1.0000 ms; Laden 1.0005 ms; Entladen 1.0000 ms; Ustart 4.997249 V; 36,8%-Pegel 1.838385 V
+zusatzversuch, B: Theorie 6.6000 ms; Laden 6.6005 ms; Entladen 6.6000 ms; Ustart 3.900994 V; 36,8%-Pegel 1.435095 V

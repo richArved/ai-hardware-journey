@@ -1,0 +1,21 @@
+led divider: 5 V, 330 ohm, 1 led 
+V1 in 0 DC 5
+R1 in led 330
+D1 led 0 LED_DEMO
+
+.model LED_DEMO D(IS=1e-20 N=2 RS=5)
+
+.control
+set wr_singlescale
+set wr_vecnames
+op
+* Arbeitspunktberechnung
+print v(in) v(led) i(V1)
+* Gibt die Spannung an den Knoten in und out sowie den Strom durch die Spannungsquelle V1 aus
+dc V1 0 5 0.05
+* Führt die DC Sweep Simulation durch
+wrdata results/led_dc.txt v(in) v(led) i(V1)
+* Speichert die Ergebnisse der DC Sweep Simulation in der Datei led_dc.txt
+quit
+.endc
+.end

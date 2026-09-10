@@ -1,0 +1,19 @@
+Musterloesung RC-Ladezeiten: Grundaufgabe und Zusatzversuch
+V1 in 0 PULSE(0 5 1m 1u 1u 10m 20m)
+R1 in out_a 1k
+C1 out_a 0 1u
+R2 in out_b 3.3k
+C2 out_b 0 1u
+.control
+set wr_singlescale
+set wr_vecnames
+op
+print v(in) v(out_a) v(out_b)
+tran 10u 45m 0 10u
+wrdata results/grundaufgabe.txt v(in) v(out_a) v(out_b)
+alter C2 2u
+tran 10u 45m 0 10u
+wrdata results/zusatzversuch.txt v(in) v(out_a) v(out_b)
+quit
+.endc
+.end

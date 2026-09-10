@@ -1,0 +1,15 @@
+Hochpass, 1 kQ Widerstand, 1 Kondensator 
+V1 in 0 PULSE(0 5 1m 1u 1u 5m 10m)
+C1 in out 1u
+R1 out 0 1k
+.control
+set wr_singlescale
+set wr_vecnames
+op
+print v(in) v(out) i(V1)
+tran 10u 25ms
+plot v(in) v(out)
+wrdata results/hochpass_tran.txt v(in) v(out) i(V1)
+quit
+.endc
+.end
