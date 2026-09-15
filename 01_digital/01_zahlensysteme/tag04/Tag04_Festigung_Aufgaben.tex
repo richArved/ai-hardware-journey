@@ -1,0 +1,159 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\setsansfont{lmsans10-regular.otf}[BoldFont=lmsans10-bold.otf]
+\setmonofont{lmmonolt10-regular.otf}[BoldFont=lmmonolt10-bold.otf,ItalicFont=lmmonolt10-oblique.otf]
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,fancyhdr,listings,xcolor}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\sffamily AI-Hardware · Tag 4}
+\fancyhead[R]{\sffamily Gezielt festigen · Aufgabenblatt}
+\fancyfoot[L]{\small Tag 4 · Festigung}
+\fancyfoot[R]{\thepage\ / 4}
+\setlength{\emergencystretch}{3em}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{7pt}\renewcommand{\arraystretch}{1.18}
+\lstset{language=Python,basicstyle=\ttfamily\small,
+ keywordstyle=\bfseries,commentstyle=\itshape\color{black},
+ stringstyle=\ttfamily\color{black},showstringspaces=false,
+ frame=single,rulecolor=\color{black},framesep=5pt,
+ columns=fullflexible,keepspaces=true,breaklines=true,tabsize=4,
+ aboveskip=8pt,belowskip=8pt}
+\newcommand{\titlepagepart}[2]{\vspace*{-4mm}{\sffamily\small #1}\par{\sffamily\LARGE\bfseries #2}\par\vspace{2mm}}
+\newcommand{\block}[1]{\par\vspace{2mm}{\sffamily\large\bfseries #1}\par}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\antwort}[1]{\par\vspace{#1}\hrule\vspace{3mm}}
+\begin{document}
+\titlepagepart{01 / STELLENWERTE · CA. 12 MINUTEN}{Tag 4 · Gezielt festigen}
+Name: \rule{65mm}{0.3pt}\hfill Datum: \rule{30mm}{0.3pt}
+
+Bearbeite die Aufgaben der Reihe nach. Plane etwa 60 Minuten ein. Schreibe die
+Rechenwege auf. Nutze Python erst für die Kontrolle auf Seite 4. Wenn du im
+Cheatsheet nachschlägst, markiere die betreffende Aufgabe. Alle signed Zahlen
+sind Zweierkomplementzahlen. Ergänze bei Bedarf ein separates Blatt.
+
+\block{1. Genau umrechnen}
+\textbf{a)} Stelle die Dezimalzahl 78 mit genau acht Bits dar. Schreibe zuerst
+die verwendeten Stellenwerte auf. Wandle das Muster dann in zwei Hexziffern um.
+Prüfe dein Ergebnis durch Rückrechnung von Hex nach Dezimal.
+\antwort{27mm}
+\textbf{b)} Wandle \code{0xC6} in genau acht Bits und anschließend in eine
+unsigned Dezimalzahl um. Zeige die beiden Vierergruppen und die Stellenwerte.
+\antwort{24mm}
+
+\block{2. Bitbreite ist nicht der Zahlenwert}
+\textbf{a)} Wie viele verschiedene Muster gibt es mit fünf Bits? Welches ist
+das kleinste und welches das größte Muster? Gib den unsigned Zahlenbereich an.
+\antwort{23mm}
+\textbf{b)} Gib den signed Zahlenbereich für fünf Bits an. Berechne außerdem
+$2^{8-1}$ und erkläre, wofür dieser Wert beim Dekodieren von acht Bits steht.
+\antwort{21mm}
+\textbf{c)} Ein Datenwort enthält 24 Bits. Wie viele Bytes und wie viele
+Hexziffern sind das? Schreibe jeweils die Division auf. Wiederhole für 40 Bits.
+\antwort{24mm}
+
+\newpage
+\titlepagepart{02 / SCHRIFTLICH RECHNEN · CA. 20 MINUTEN}{Addition und Subtraktion}
+\block{3. Überträge sichtbar machen}
+Addiere schriftlich. Markiere jeden Übertrag und rechne anschließend zur
+Kontrolle in Dezimal. Beide Operanden gelten jeweils als signed Acht-Bit-Zahlen.
+Gib vollständige Binärsumme, acht gespeicherte Bits, gespeicherten signed Wert,
+Carry-out und signed Overflow an. Begründe die beiden Flags jeweils kurz.
+
+\textbf{a)} \code{0110 1110 + 0010 1101}
+\antwort{40mm}
+\textbf{b)} \code{1000 1000 + 1110 1100}
+\antwort{40mm}
+
+\block{4. Subtraktion als Addition}
+Berechne \textbf{$23-41$ mit acht Bits} und dokumentiere jeden Schritt:
+\begin{enumerate}
+\item Stelle $+23$ und $+41$ mit jeweils acht Bits dar.
+\item Bilde aus dem Muster für $+41$ das Muster für $-41$. Zeige beide Schritte.
+\item Addiere $+23$ und $-41$ schriftlich mit Überträgen.
+\item Behalte acht Bits und interpretiere sie als signed Zahl.
+\item Prüfe durch die Dezimalrechnung. Entsteht signed Overflow? Begründe.
+\end{enumerate}
+\antwort{43mm}
+
+\newpage
+\titlepagepart{03 / GRENZFÄLLE UND PYTHON · CA. 15 MINUTEN}{Die Bedeutung jedes Schrittes}
+\block{5. Zwei Darstellungsgrenzen}
+\textbf{a)} Erweitere das signed Fünf-Bit-Muster \code{10110} auf acht Bits,
+ohne seinen Wert zu verändern. Nenne das neue Muster und seinen signed Wert.
+Welcher Wert entstünde stattdessen, wenn du drei Nullen voranstellst?
+\antwort{24mm}
+\textbf{b)} Nenne die kleinste signed Vier-Bit-Zahl und ihr Muster. Invertiere
+die Bits und addiere 1. Welches Muster entsteht? Warum kann das mathematisch
+positive Gegenstück nicht in dieser Bitbreite dargestellt werden?
+\antwort{25mm}
+
+\block{6. Textbearbeitung und Reste}
+\textbf{a)} Notiere den Wert und den Typ jeder Variablen nach der jeweiligen
+Zeile. Schreibe Texte mit Anführungszeichen. Erkläre zusätzlich, was die letzte
+Zeile mit dem vorhandenen Text macht.
+\begin{lstlisting}
+a = hex(14)
+b = a[2:]
+c = b.upper()
+d = (9 + 3) // 4
+e = c.zfill(d)
+\end{lstlisting}
+\antwort{23mm}
+\textbf{b)} Berechne die vier Ausdrücke ohne Python. Begründe die ersten beiden
+über die Rechenreihenfolge und die letzten beiden über den Divisionsrest.
+Schreibe für die Modulo-Ausdrücke eine Gleichung der Form
+„Dividend = ganzzahliges Vielfaches des Divisors + Rest“ auf.
+\begin{lstlisting}
+(16 + 3) // 4
+16 + 3 // 4
+19 % 16
+-5 % 16
+\end{lstlisting}
+\antwort{28mm}
+
+\newpage
+\titlepagepart{04 / TRANSFER UND KONTROLLE · CA. 13 MINUTEN}{Papier und Python verbinden}
+\block{7. Die Funktion gedanklich ausführen}
+Notiere ohne Python für jeden Aufruf die folgenden Zwischenwerte: \code{minimum},
+\code{maximum}, \code{summe}, \code{overflow}, \code{raw} und
+\code{ergebnis}. Gib dann das Rückgabepaar an. Zeige auch das gespeicherte
+Vier-Bit-Muster. Nutze die Funktion aus deiner Abschlussdatei als Vorlage.
+\begin{lstlisting}
+add_with_overflow_flag(3, -7, 4)
+add_with_overflow_flag(-8, -2, 4)
+\end{lstlisting}
+\antwort{34mm}
+\textbf{Zusatzfrage:} Was muss bei \code{add\_with\_overflow\_flag(8, 0, 4)}
+passieren? Erkläre, warum sich dieser Fall von einem Overflow der Summe gültiger
+Operanden unterscheidet.
+\antwort{18mm}
+
+\block{8. Prüfen statt nur ausführen}
+\textbf{a)} Öffne im Tag-4-Ordner Python und importiere aus
+\code{hardware\_numbers.abschluss\_tag04} die Funktionen \code{to\_hex},
+\code{from\_twos\_complement} und \code{add\_with\_overflow\_flag}.
+Prüfe damit deine Umrechnungen und Additionsresultate aus diesem Blatt.
+Markiere Abweichungen und korrigiere den ursprünglichen Rechenweg sichtbar.
+\antwort{13mm}
+\textbf{b)} Schreibe in einer neuen Datei \code{test\_festigung.py} genau vier
+gezielte Tests für deine Abschlussfunktionen:
+\begin{enumerate}
+\item Führende Nullen bei der Hexausgabe.
+\item Dekodierung genau an der Grenze zwischen nichtnegativ und negativ.
+\item Addition mit negativer Summe und signed Overflow.
+\item Ungültiger signed Operand, geprüft mit \code{pytest.raises(ValueError)}.
+\end{enumerate}
+Notiere die erwarteten Ergebnisse vor dem Ausführen. Starte aus dem
+Tag-4-Ordner \code{python -m pytest -q test\_festigung.py} und halte fest,
+wie viele Tests bestanden haben. Erkläre bei einem Fehler, was du geändert hast.
+\antwort{16mm}
+
+\block{9. Das Warum in eigenen Worten}
+Eine CPU kann Subtraktionsbefehle ausführen. Erkläre in zwei Sätzen, warum
+Zweierkomplement trotzdem hilfreich ist, um Subtraktion mit einer Addierschaltung
+umzusetzen. Beziehe dich auf deine Rechnung $23-41$.
+\antwort{18mm}
+\end{document}

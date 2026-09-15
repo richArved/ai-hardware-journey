@@ -1,0 +1,382 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\setsansfont{lmsans10-regular.otf}[BoldFont=lmsans10-bold.otf]
+\setmonofont{lmmonolt10-regular.otf}[BoldFont=lmmonolt10-bold.otf,ItalicFont=lmmonolt10-oblique.otf]
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,fancyhdr,listings,xcolor}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\sffamily AI-Hardware · Tag 4}
+\fancyhead[R]{\sffamily Zahlensysteme und Binärarithmetik}
+\fancyfoot[L]{\small Nachschlagen · Verstehen · In Python prüfen}
+\fancyfoot[R]{\thepage\ / 6}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{7pt}\renewcommand{\arraystretch}{1.18}
+\lstset{language=Python,basicstyle=\ttfamily\small,
+ keywordstyle=\bfseries,commentstyle=\itshape\color{black},
+ stringstyle=\ttfamily\color{black},showstringspaces=false,
+ frame=single,rulecolor=\color{black},framesep=5pt,
+ columns=fullflexible,keepspaces=true,breaklines=true,tabsize=4,
+ aboveskip=8pt,belowskip=8pt}
+\newcommand{\titlepagepart}[2]{\vspace*{-4mm}{\sffamily\small #1}\par{\sffamily\LARGE\bfseries #2}\par\vspace{2mm}}
+\newcommand{\block}[1]{\par\vspace{2mm}{\sffamily\large\bfseries #1}\par}
+\newcommand{\code}[1]{\texttt{#1}}
+\begin{document}
+\titlepagepart{01 / GRUNDLAGEN}{Zahlen schreiben und Bits lesen}
+\textbf{Wozu?} Ein Register speichert Bits. Du brauchst eine Bitbreite und eine
+Interpretation, um daraus eine Zahl zu lesen. Binär und Hex sind Schreibweisen;
+unsigned und Zweierkomplement bestimmen die Bedeutung des Bitmusters.
+
+\block{Stellenwerte: Nur die Stellen mit einer 1 mitzählen}
+\begin{center}
+\begin{tabular}{lrrrrrrrr}\toprule
+Position &7&6&5&4&3&2&1&0\\
+Unsigned &128&64&32&16&8&4&2&1\\
+Beispiel &0&1&0&1&1&0&1&1\\\bottomrule
+\end{tabular}
+\end{center}
+\[0101\,1011_2=64+16+8+2+1=91_{10}\]
+Die rechte Stelle zählt $2^0=1$. Jede Stelle nach links zählt doppelt so viel.
+Dezimal funktioniert genauso, nur mit $1,10,100,\ldots$ statt $1,2,4,\ldots$.
+
+\block{Dezimal nach Binär}
+Zerlege die Zahl in Zweierpotenzen: $45=32+8+4+1$.
+Mit den Stellen $32,16,8,4,2,1$ ergibt das $101101_2$; auf acht Bits aufgefüllt:
+\code{0010 1101}. Alternativ: wiederholt durch 2 teilen, Reste von unten nach oben lesen.
+
+\block{Hex: Eine Ziffer entspricht vier Bits}
+\begin{center}
+\begin{tabular}{ccc|ccc|ccc|ccc}\toprule
+Hex&Dez.&Bits&Hex&Dez.&Bits&Hex&Dez.&Bits&Hex&Dez.&Bits\\\midrule
+0&0&0000&4&4&0100&8&8&1000&C&12&1100\\
+1&1&0001&5&5&0101&9&9&1001&D&13&1101\\
+2&2&0010&6&6&0110&A&10&1010&E&14&1110\\
+3&3&0011&7&7&0111&B&11&1011&F&15&1111\\\bottomrule
+\end{tabular}
+\end{center}
+Von rechts in Vierergruppen teilen; eine unvollständige Gruppe links mit Nullen ergänzen.
+\[\texttt{0xB7}=1011\,0111_2=11\cdot16+7=183_{10}\]
+\textbf{Achtung:} \code{0x} ist das Hexpräfix, \code{0b} das Binärpräfix.
+\code{0x23} ist $2\cdot16+3=35$, nicht 23 dezimal. Hex legt kein Vorzeichen fest.
+
+\block{Breite und Einheiten}
+$N$ Bits haben $2^N$ Muster. Unsigned reichen sie von $0$ bis $2^N-1$;
+die Null zählt als eine Möglichkeit mit.
+\begin{center}
+\begin{tabular}{ll|ll}\toprule
+1 Nibble &4 Bits = 1 Hexziffer&1 Byte&8 Bits = 2 Hexziffern\\
+LSB&niederwertigstes Bit rechts&MSB&höchstwertigstes Bit links\\
+1 KiB&$1024=2^{10}$ Byte&1 kB&1000 Byte\\\bottomrule
+\end{tabular}
+\end{center}
+Ein Word ist eine architekturabhängige Dateneinheit. $1\,\mathrm{MiB}=2^{20}$ Byte,
+$1\,\mathrm{GiB}=2^{30}$ Byte. Kleinbuchstabe b steht häufig für Bit, B für Byte.
+
+\newpage
+\titlepagepart{02 / INTERPRETATION}{Negative Zahlen und das Warum}
+\block{Warum Zweierkomplement?}
+Wir wollen dieselbe Binäraddition auch für negative Zahlen verwenden.
+Mit vier Bits wirkt das Muster \code{1111} beim Addieren wie „eins abziehen“:
+\[
+\underbrace{0101_2}_{5}+\underbrace{1111_2}_{\text{Muster für }-1}
+=1\,0100_2\quad\longrightarrow\quad0100_2=4.
+\]
+Nur die rechten vier Bits werden gespeichert. Unsigned wäre dies $5+15=20$;
+nach Wegfall der zusätzlichen 16 bleibt 4. Deshalb ist 15 als Bitmuster
+praktisch für $-1$. Allgemein repräsentiert $2^N-k$ die Zahl $-k$, wenn sie
+im signed Bereich liegt.
+
+\block{Die linke Stelle zählt negativ}
+\begin{center}
+\begin{tabular}{lrrrrl}\toprule
+Interpretation&\multicolumn{4}{c}{Stellenwerte bei vier Bits}&Muster \code{1101}\\\midrule
+Unsigned&$+8$&4&2&1&$8+4+1=13$\\
+Zweierkomplement&$-8$&4&2&1&$-8+4+1=-3$\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Kein bloßes Minuszeichen:} Im Zweierkomplement sind die restlichen Bits
+nicht der Betrag. \code{1101} bedeutet $-3$, nicht $-5$.
+Das System „Vorzeichen und Betrag“ würde $-5$ ergeben und hat zwei Nullen;
+es ist nicht das System unserer Funktionen.
+
+\block{Die Bitbreite gehört zur Bedeutung}
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+Muster&Bits&Unsigned&Zweierkomplement\\\midrule
+\code{1101}&4&13&$-3$\\
+\code{0000 1101}&8&13&$+13$\\
+\code{1111 1101}&8&253&$-3$\\\bottomrule
+\end{tabular}
+\end{center}
+Mit $N$ Bits ist der höchste Stellenwert $-2^{N-1}$. Daraus folgen:
+\[
+\boxed{\text{unsigned: }0\ldots 2^N-1}\qquad
+\boxed{\text{signed: }-2^{N-1}\ldots 2^{N-1}-1}
+\]
+\begin{center}
+\begin{tabular}{rll}\toprule
+Bits&Unsigned&Zweierkomplement\\\midrule
+1&0 bis 1&$-1$ bis 0\\
+4&0 bis 15&$-8$ bis 7\\
+5&0 bis 31&$-16$ bis 15\\
+8&0 bis 255&$-128$ bis 127\\\bottomrule
+\end{tabular}
+\end{center}
+\block{Negieren und Verbreitern}
+\textbf{Vorzeichen umkehren:} Bits invertieren, 1 addieren, $N$ Bits behalten.
+\[+3:\;0011\ \longrightarrow\ 1100\ \longrightarrow\ 1101:\;-3\]
+Ausnahme: Die kleinste negative Zahl hat bei gleicher Breite kein positives
+Gegenstück. Vier-Bit-$-8$ lässt sich nicht als Vier-Bit-$+8$ negieren.
+
+\textbf{Vorzeichenerweiterung:} Links das bisherige Vorzeichenbit wiederholen.
+\code{1101} wird \code{1111 1101} ($-3$ bleibt $-3$).
+Positive Zahlen bekommen links Nullen. Unsigned Zahlen werden mit Nullen erweitert.
+
+\newpage
+\titlepagepart{03 / RECHNEN}{Addition, Carry und signed Overflow}
+\block{Binäre Addition und Subtraktion}
+$0+0=0$, $0+1=1$, $1+1=10_2$.
+Bei $1+1$ schreiben wir 0 und tragen 1 nach links. Mit eingehendem Übertrag:
+$1+1+1=11_2$; 1 schreiben und 1 weitertragen.
+
+Subtraktion wird Addition der negierten zweiten Zahl: $a-b=a+(-b)$.
+\[5-3:\quad0101+1101=1\,0010\quad\longrightarrow\quad0010=2.\]
+\block{Zwei unterschiedliche Fragen}
+\textbf{Carry-out:} Wird bei Addition der $N$-Bit-Muster eine 1 aus der höchsten
+Stelle herausgetragen? Bei unsigned Addition zeigt dies einen Überlauf an.
+Ein Übertrag \emph{innerhalb} der Rechnung ist noch kein Carry-out.
+
+\textbf{Signed Overflow:} Liegt die mathematisch richtige Summe außerhalb des
+signed Zahlenbereichs? Zwei positive Operanden können dann ein negatives Ergebnis
+liefern; zwei negative ein nichtnegatives. Unterschiedliche Vorzeichen führen
+bei gültigen Operanden nicht zu signed Overflow.
+\begin{center}
+\begin{tabular}{lclcc}\toprule
+Signed Rechnung&Gespeichert&Wert&Carry-out&Signed Overflow\\\midrule
+$-1+1$&\code{0000}&0&Ja&Nein\\
+$7+1$&\code{1000}&$-8$&Nein&Ja\\
+$-8+(-1)$&\code{0111}&7&Ja&Ja\\
+$2+(-5)$&\code{1101}&$-3$&Nein&Nein\\\bottomrule
+\end{tabular}
+\end{center}
+Alle Beispiele verwenden vier Bits. Die \textbf{richtige Summe} und der
+\textbf{gespeicherte signed Wert} sind bei Overflow verschieden.
+
+\block{Was die Python-Funktion nachbildet}
+Python-Integer sind nicht von selbst auf unsere Registerbreite begrenzt.
+Für die mathematische Summe $s=a+b$ gilt:
+\[
+\begin{aligned}
+\mathrm{overflow}&=(s<-2^{N-1})\ \lor\ (s>2^{N-1}-1),\\
+\mathrm{raw}&=s\bmod 2^N,\\
+\mathrm{ergebnis}&=\operatorname{from\_twos\_complement}(\mathrm{raw},N).
+\end{aligned}
+\]
+\code{raw} beschreibt das gespeicherte Muster als unsigned Zahl. Erst die letzte
+Zeile interpretiert es als signed Zahl.
+
+\block{Warum Modulo (\texttt{\%})?}
+Bei vier Bits entspricht „die vier rechten Bits behalten“ dem Rest modulo 16:
+\begin{center}
+\begin{tabular}{rlrl}\toprule
+Summe&Rechnung&\code{raw}&Signed Interpretation\\\midrule
+18&$18=1\cdot16+2$&2&\code{0010} $\rightarrow 2$\\
+8&$8=0\cdot16+8$&8&\code{1000} $\rightarrow -8$\\
+$-3$&$-3=(-1)\cdot16+13$&13&\code{1101} $\rightarrow -3$\\
+$-9$&$-9=(-1)\cdot16+7$&7&\code{0111} $\rightarrow 7$\\\bottomrule
+\end{tabular}
+\end{center}
+Bei positivem Divisor 16 liefert Python mit \code{\% 16} immer einen Rest von
+0 bis 15. Auch bei negativen Summen entsteht so das richtige gespeicherte Muster.
+
+\block{Ein vollständiger Ablauf}
+\code{add\_with\_overflow\_flag(7, 1, 4)}:
+Summe $8$; Bereich $-8\ldots7$; Overflow wahr; $8\bmod16=8$;
+Muster \code{1000}; signed Wert $-8$; Rückgabe \code{(-8, True)}.
+
+\newpage
+\titlepagepart{04 / PYTHON-WERKZEUGE}{Von der Zahl zum formatierten Text}
+\textbf{Keine Imports nötig.} \code{bin}, \code{hex}, \code{print}, \code{int},
+\code{str} und \code{ValueError} sind eingebaut. Schlüsselwörter sind im Code fett,
+Kommentare kursiv; die Darstellung bleibt vollständig schwarz-weiß.
+
+\block{Zahl und Text unterscheiden}
+\begin{lstlisting}
+value = 6            # int: eine Zahl
+text = bin(value)    # str: "0b110"
+print(6 + 1)         # 7
+print("6" + "1")     # 61: Texte werden aneinandergehaengt
+\end{lstlisting}
+\code{bin()} und \code{hex()} liefern Text. Die Präfixe \code{0b} und \code{0x}
+kennzeichnen die Basis. Sie sind keine zusätzlichen Ziffern des Zahlenwerts.
+
+\block{Die Umwandlung in einzelnen Schritten}
+\begin{lstlisting}
+mit_praefix = bin(9)               # "0b1001"
+ohne_praefix = mit_praefix[2:]      # "1001"
+ergebnis = ohne_praefix.zfill(8)   # "00001001"
+
+mit_praefix = hex(15)              # "0xf", kleines f
+\end{lstlisting}
+\textbf{Indexierung:} Im Text \code{0b1001} haben die Zeichen die Positionen
+$0,1,2,3,4,5$. \code{[2:]} übernimmt ab Position 2 bis zum Ende.
+Es entfernt das Präfix und rechnet den Text nicht in Dezimal um.
+\begin{lstlisting}
+ohne_praefix = mit_praefix[2:]      # "f"
+gross = ohne_praefix.upper()       # "F"
+ergebnis = gross.zfill(2)          # "0F", nicht "FF"
+\end{lstlisting}
+\code{zfill(n)} ergänzt links Nullen bis zur \textbf{Gesamtlänge} $n$.
+\code{"A".zfill(3)} ergibt \code{"00A"}. Es kürzt zu lange Texte nicht und fügt
+kein Präfix hinzu. Deshalb prüfen wir den Wertebereich separat.
+
+\block{Wie viele Hexstellen? Erst addieren, dann teilen}
+\[
+\text{Hexstellen}=\left\lceil\frac{N}{4}\right\rceil
+\qquad\text{Python: }\code{(bits + 3) // 4}
+\]
+\code{//} zählt bei positiven Zahlen die vollständigen Gruppen:
+$19=4\cdot4+3$, also \code{19 // 4 == 4}. Der Rest wird nicht aufgerundet.
+Das vorherige $+3$ sorgt dafür, dass jeder ursprüngliche Rest von 1, 2 oder 3
+noch eine Gruppe mitzählen lässt; bei Rest 0 entsteht keine zusätzliche Gruppe.
+\begin{center}
+\begin{tabular}{rlll}\toprule
+Bits&Vierergruppen&Formel&Hexstellen\\\midrule
+8&2 volle&$11\mathbin{//}4$&2\\
+9&2 volle, 1 Bit übrig&$12\mathbin{//}4$&3\\
+12&3 volle&$15\mathbin{//}4$&3\\
+16&4 volle&$19\mathbin{//}4$&4\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Klammern!} \code{(8 + 3) // 4} ergibt 2;
+\code{8 + 3 // 4} ergibt 8, weil zuerst dividiert wird.
+
+\textbf{Funktionen:} \code{=} speichert einen Wert, \code{==} vergleicht.
+\code{return} gibt zurück und beendet den Aufruf; \code{print} zeigt etwas an.
+\code{return} gehört in eine Funktion. Einrückung bestimmt die Zugehörigkeit.
+Typhinweise wie \code{: int} oder \code{-> str} erzwingen keine Typprüfung.
+
+\newpage
+\titlepagepart{05 / REFERENZCODE}{Die ersten drei Funktionen}
+Für alle Eingaben setzen wir ganze Zahlen voraus. \code{bits} muss mindestens 1
+sein; ein unsigned Muster muss zwischen $0$ und $2^{\mathrm{bits}}-1$ liegen.
+\begin{lstlisting}
+def to_bin(value: int, bits: int) -> str:
+    if bits < 1:
+        raise ValueError("Bitbreite muss mindestens 1 sein.")
+    if value < 0 or value > 2**bits - 1:
+        raise ValueError("Zahl passt nicht in die Bitbreite.")
+
+    mit_praefix = bin(value)
+    ohne_praefix = mit_praefix[2:]
+    ergebnis = ohne_praefix.zfill(bits)
+    return ergebnis
+
+
+def to_hex(value: int, bits: int) -> str:
+    if bits < 1:
+        raise ValueError("Bitbreite muss mindestens 1 sein.")
+    if value < 0 or value > 2**bits - 1:
+        raise ValueError("Zahl passt nicht in die Bitbreite.")
+
+    mit_praefix = hex(value)
+    ohne_praefix = mit_praefix[2:]
+    gross = ohne_praefix.upper()
+    hex_stellen = (bits + 3) // 4
+    return gross.zfill(hex_stellen)
+
+
+def from_twos_complement(raw: int, bits: int) -> int:
+    if bits < 1:
+        raise ValueError("Bitbreite muss mindestens 1 sein.")
+    if raw < 0 or raw > 2**bits - 1:
+        raise ValueError("Bitmuster passt nicht in die Bitbreite.")
+
+    grenze = 2**(bits - 1)
+    if raw < grenze:
+        return raw
+    return raw - 2**bits
+\end{lstlisting}
+\block{Warum wird beim Dekodieren $2^N$ abgezogen?}
+Das höchste Bit wechselt seinen Stellenwert von $+2^{N-1}$ zu $-2^{N-1}$.
+Die Differenz ist $-2^N$. Alle anderen Stellen bleiben unverändert.
+\[
+\operatorname{signed}(r,N)=
+\begin{cases}
+r,&r<2^{N-1},\\
+r-2^N,&r\geq2^{N-1}.
+\end{cases}
+\]
+\textbf{Genau an der Grenze beginnt der negative Bereich:} \code{<}, nicht
+\code{<=}. Bei vier Bits muss \code{raw=8} zu $-8$ werden.
+\begin{lstlisting}
+assert to_bin(6, 4) == "0110"
+assert to_hex(15, 8) == "0F"
+assert from_twos_complement(13, 4) == -3
+assert from_twos_complement(13, 8) == 13
+\end{lstlisting}
+
+\newpage
+\titlepagepart{06 / REFERENZCODE UND PRÜFUNG}{Addition und dein Tagesabschluss}
+\begin{lstlisting}
+def add_with_overflow_flag(a: int, b: int,
+                           bits: int) -> tuple[int, bool]:
+    if bits < 1:
+        raise ValueError("Bitbreite muss mindestens 1 sein.")
+
+    minimum = -(2**(bits - 1))
+    maximum = 2**(bits - 1) - 1
+    if a < minimum or a > maximum:
+        raise ValueError("a passt nicht in die Bitbreite.")
+    if b < minimum or b > maximum:
+        raise ValueError("b passt nicht in die Bitbreite.")
+
+    summe = a + b
+    overflow = summe < minimum or summe > maximum
+    raw = summe % (2**bits)
+    ergebnis = from_twos_complement(raw, bits)
+    return ergebnis, overflow
+
+
+assert add_with_overflow_flag(2, 3, 4) == (5, False)
+assert add_with_overflow_flag(2, -5, 4) == (-3, False)
+assert add_with_overflow_flag(7, 1, 4) == (-8, True)
+assert add_with_overflow_flag(-8, -1, 4) == (7, True)
+\end{lstlisting}
+Die Rückgabe ist ein \textbf{Tupel}: gespeicherte signed Zahl und ein Wahrheitswert.
+\code{True} bedeutet „Overflow“, \code{False} bedeutet „kein Overflow“.
+Ungültige \emph{Operanden} lösen \code{ValueError} aus; ein Überlauf der
+\emph{Summe gültiger Operanden} wird mit dem Flag gemeldet.
+
+\block{Im Terminal ausprobieren}
+Aktiviere die Umgebung und wechsle in den Übungsordner. Die folgenden Befehle
+sind Shell-Code, kein Python:
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily\footnotesize]
+source "$HOME/.venvs/ai-hardware-day04/bin/activate"
+cd "$HOME/Learning/Semiconductors : AI Hardware/ai-hardware-journey/01_digital/01_zahlensysteme/tag04"
+python
+\end{lstlisting}
+In der Python-Eingabe kannst du dann schreiben:
+\begin{lstlisting}
+from hardware_numbers.numbers_lernversion import from_twos_complement
+print(from_twos_complement(19, 5))  # -13
+exit()
+\end{lstlisting}
+\textbf{Tests:} Im Übungsordner startet \code{python -m pytest -q} die Tests.
+Sie prüfen die ursprüngliche Datei \code{numbers.py}, nicht die Lernversion.
+Fertige Funktionen dafür in die ursprüngliche Datei übertragen. Lose Experimente
+mit undefinierten Variablen dort entfernen.
+
+\block{Was du an Tag 4 beherrschen solltest}
+Binär/Hex/Dezimal umrechnen; unsigned und signed Bereiche bestimmen;
+Zweierkomplement erklären und dekodieren; addieren, subtrahieren und Carry von
+signed Overflow unterscheiden; Vorzeichen korrekt erweitern. Vier Funktionen
+implementieren und mindestens 20 Tests inklusive Randfällen bestehen lassen.
+Prüfe besonders 0, $-2^{N-1}$, $2^{N-1}-1$, 1 Bit und ungültige Eingaben.
+
+\small\textbf{Grundlage:} Harris \& Harris, \emph{Digital Design and Computer
+Architecture, RISC-V Edition}, Abschnitt 1.4, Buchseiten 7--17; dein Lernplan
+Woche 1, Tag 4. Eigene Erklärungen und Python-Referenz für unsere Übung.
+\end{document}

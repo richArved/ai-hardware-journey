@@ -1,0 +1,265 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\setsansfont{lmsans10-regular.otf}[BoldFont=lmsans10-bold.otf]
+\setmonofont{lmmonolt10-regular.otf}[BoldFont=lmmonolt10-bold.otf,ItalicFont=lmmonolt10-oblique.otf]
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,fancyhdr,listings,xcolor}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\sffamily AI-Hardware · Tag 4}
+\fancyhead[R]{\sffamily Abschlussarbeit · 100 Punkte}
+\fancyfoot[L]{\small Name: \rule{40mm}{0.3pt}}
+\fancyfoot[R]{\thepage\ / 6}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{7pt}\renewcommand{\arraystretch}{1.18}
+\lstset{language=Python,basicstyle=\ttfamily\small,
+ keywordstyle=\bfseries,commentstyle=\itshape\color{black},
+ stringstyle=\ttfamily\color{black},showstringspaces=false,
+ frame=single,rulecolor=\color{black},framesep=5pt,
+ columns=fullflexible,keepspaces=true,breaklines=true,tabsize=4,
+ aboveskip=8pt,belowskip=8pt}
+\newcommand{\titlepagepart}[2]{\vspace*{-4mm}{\sffamily\small #1}\par{\sffamily\LARGE\bfseries #2}\par\vspace{2mm}}
+\newcommand{\block}[1]{\par\vspace{2mm}{\sffamily\large\bfseries #1}\par}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newcommand{\antwort}[1]{\par\vspace{#1}\hrule\vspace{2mm}}
+\newcommand{\aufgabe}[2]{\block{#1 \hfill #2 Punkte}}
+\begin{document}
+\titlepagepart{01 / VERSTEHEN UND UMRECHNEN}{Abschlussarbeit · Tag 4}
+\textbf{Name:} \rule{65mm}{0.3pt}\hfill\textbf{Datum:} \rule{30mm}{0.3pt}
+
+\textbf{Umfang:} 100 Punkte, etwa 120 Minuten als Orientierung, ohne Zeitdruck.
+Seiten 1--4 zuerst ohne Python bearbeiten; danach darfst du mit dem Cheatsheet
+nacharbeiten. Ergänzungen kenntlich machen. Auf Seiten 5--6 sind Python,
+Terminal und Cheatsheet erlaubt. Rechenwege zählen auch bei falschen Endergebnissen.
+Leerzeichen in Bitmustern dienen nur der Lesbarkeit. Alle signed Zahlen sind
+Zweierkomplementzahlen. Es gibt keine versteckten Lösungen in diesem Blatt.
+
+\aufgabe{1. Das Warum erklären}{8}
+\textbf{a) (4 P)} Ein Vier-Bit-Register enthält \code{1110}. Warum reicht das
+Bitmuster allein nicht aus, um seine Bedeutung zu bestimmen? Nenne die Werte
+unsigned und signed und erkläre, welche Vereinbarung den Unterschied macht.
+\antwort{22mm}
+\textbf{b) (4 P)} Warum ist Zweierkomplement für eine Addierschaltung praktisch?
+Erkläre es an einer selbst gewählten Subtraktion mit vier Bits. Zeige die
+Bitmuster, die Addition und das gespeicherte Ergebnis.
+\antwort{27mm}
+
+\aufgabe{2. Zahlensysteme und Einheiten}{12}
+\textbf{a) (8 P)} Ergänze die Tabelle. Alle Werte hier sind \emph{unsigned}.
+Verwende genau acht Bits und zwei Hexziffern. Je Lücke 1 Punkt.
+\begin{center}
+\begin{tabular}{p{35mm}p{55mm}p{35mm}}\toprule
+Dezimal&Binär (8 Bits)&Hex\\\midrule
+78&\rule{43mm}{0.2pt}&\rule{25mm}{0.2pt}\\[4mm]
+\rule{25mm}{0.2pt}&1010 1101&\rule{25mm}{0.2pt}\\[4mm]
+\rule{25mm}{0.2pt}&\rule{43mm}{0.2pt}&\code{0xD3}\\[4mm]
+\rule{25mm}{0.2pt}&\rule{43mm}{0.2pt}&\code{0xB7}\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{b) (2 P)} Ein Datenwort hat 24 Bits. Wie viele Bytes und wie viele
+Hexziffern sind das?\antwort{8mm}
+\textbf{c) (2 P)} Wie viele Bytes sind 1 KiB und 1 kB?\antwort{8mm}
+
+\newpage
+\titlepagepart{02 / DARSTELLUNGEN}{Zweierkomplement und Bitbreite}
+\aufgabe{3. Zahlenbereiche und Interpretationen}{20}
+\textbf{a) (4 P)} Gib jeweils Minimum und Maximum an. Jede Bereichsgrenze zählt
+1 Punkt.\par
+\begin{center}
+\begin{tabular}{lcc}\toprule
+Darstellung&Minimum&Maximum\\\midrule
+5 Bit unsigned&\rule{35mm}{0.2pt}&\rule{35mm}{0.2pt}\\[5mm]
+5 Bit Zweierkomplement&\rule{35mm}{0.2pt}&\rule{35mm}{0.2pt}\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{b) (6 P)} Werte die Aufrufe aus: Bitmuster in der vorgegebenen Breite,
+Grenze $2^{\mathrm{bits}-1}$, ausgeführter Rückgabezweig und Ergebnis.
+Je Aufruf 2 Punkte. Rechenweg angeben.
+\begin{lstlisting}
+from_twos_complement(21, 5)
+from_twos_complement(21, 8)
+from_twos_complement(128, 8)
+\end{lstlisting}
+\antwort{34mm}
+\textbf{c) (4 P)} Stelle $-22$ mit acht Bits dar. Beginne mit $+22$, invertiere,
+addiere 1 und kontrolliere über die signed Stellenwerte. Gib zusätzlich Hex an.
+\antwort{28mm}
+\textbf{d) (3 P)} Erweitere \code{10101} von fünf auf acht Bits, sodass sein
+signed Wert erhalten bleibt. Erkläre deine Ergänzung. Welcher signed Wert
+entstünde stattdessen durch Ergänzen von drei Nullen?
+\antwort{23mm}
+\textbf{e) (3 P)} Warum kann man die kleinste negative Vier-Bit-Zahl nicht als
+positive Zahl mit derselben signed Bitbreite darstellen? Zeige, was beim
+Invertieren und Addieren von 1 passiert.
+\antwort{22mm}
+
+\newpage
+\titlepagepart{03 / RECHNEN}{Addition, Subtraktion und Overflow}
+\aufgabe{4. Die Hardware rechnet mit acht Bits}{20}
+Für \textbf{a--c} gilt: Beide Operanden sind signed. Gib die mathematische
+Dezimalsumme, die vollständige Binärsumme, die acht gespeicherten Bits, deren
+signed Wert sowie Carry-out und signed Overflow an. Begründe die beiden Flags.
+\textbf{Je Fall 5 P:} Dezimalsumme (1), Binärrechnung und gespeicherter Wert (2),
+beide Flags mit Begründung (2).
+
+\textbf{a)} \code{0110 1110 + 0010 1101}
+\antwort{38mm}
+\textbf{b)} \code{1111 1001 + 0000 0111}
+\antwort{38mm}
+\textbf{c)} \code{1000 1000 + 1110 1100}
+\antwort{38mm}
+\textbf{d) (5 P)} Berechne $23-41$ durch Addition im Acht-Bit-Zweierkomplement.
+Zeige: Negation des zweiten Operanden (2), Binäraddition und gespeicherten
+signed Wert (2), signed Overflow mit Begründung (1).
+\antwort{35mm}
+
+\newpage
+\titlepagepart{04 / PYTHON LESEN}{Schritt für Schritt statt Raten}
+\aufgabe{5. Texte, Operatoren und Fehlersuche}{15}
+\textbf{a) (5 P)} Was steht nach jeder Zeile in der Variablen? Schreibe
+\emph{Textwerte mit Anführungszeichen}, Zahlen ohne. Je Variable 1 Punkt.
+\begin{lstlisting}
+a = hex(13)
+b = a[2:]
+c = b.upper()
+d = (9 + 3) // 4
+e = c.zfill(d)
+\end{lstlisting}
+\code{a =} \rule{28mm}{0.2pt}\quad\code{b =} \rule{28mm}{0.2pt}\quad
+\code{c =} \rule{28mm}{0.2pt}\par
+\code{d =} \rule{28mm}{0.2pt}\quad\code{e =} \rule{28mm}{0.2pt}
+
+\textbf{b) (4 P)} Berechne die Ausdrücke. Begründe kurz mit Rechenreihenfolge,
+vollständigen Gruppen oder Rest. Je Ausdruck 1 Punkt.
+\begin{lstlisting}
+(16 + 3) // 4
+16 + 3 // 4
+19 % 16
+-5 % 16
+\end{lstlisting}
+\antwort{24mm}
+\textbf{c) (3 P)} Die Eingabeprüfungen seien korrekt. Finde den Fehler in
+folgender Dekodierung. Nenne einen Vier-Bit-Aufruf, bei dem sie falsch rechnet,
+das falsche und das richtige Ergebnis sowie die Korrektur.
+\begin{lstlisting}
+grenze = 2**(bits - 1)
+if raw <= grenze:
+    return raw
+return raw - 2**bits
+\end{lstlisting}
+\antwort{21mm}
+\textbf{d) (3 P)} Erkläre je einen Unterschied:
+\begin{enumerate}
+\item \code{return ergebnis} und \code{print(ergebnis)};
+\item die Zahl \code{9} und der Text \code{"1001"};
+\item \code{ValueError} für ungültige Operanden und \code{overflow = True}.
+\end{enumerate}
+\antwort{20mm}
+
+\newpage
+\titlepagepart{05 / SELBST IMPLEMENTIEREN}{Deine vier Funktionen}
+\aufgabe{6. Python-Praxisteil}{15}
+Erstelle im Tag-4-Ordner eine neue Datei \code{abschluss\_tag04.py}.
+Implementiere alle vier Funktionen dort. Du darfst dein Cheatsheet nachschlagen;
+schreibe und erkläre den Code selbst. Keine Imports nötig. Ganze Zahlen als
+Eingabetypen voraussetzen. Beliebige positive Bitbreiten unterstützen.
+
+\begin{lstlisting}
+def to_bin(value: int, bits: int) -> str:
+    pass
+
+
+def to_hex(value: int, bits: int) -> str:
+    pass
+
+
+def from_twos_complement(raw: int, bits: int) -> int:
+    pass
+
+
+def add_with_overflow_flag(a: int, b: int,
+                           bits: int) -> tuple[int, bool]:
+    pass
+\end{lstlisting}
+\textbf{Vertrag und Punkte:}
+\begin{itemize}
+\item \textbf{to\_bin (3 P):} unsigned Eingabe; Text ohne Präfix, genau
+\code{bits} Ziffern; links Nullen ergänzen; Bitbreite und Wertebereich prüfen.
+\item \textbf{to\_hex (3 P):} unsigned Eingabe; große Hexbuchstaben ohne Präfix;
+aufgerundet \code{bits / 4} Stellen; tatsächlichen Bitbereich prüfen, auch wenn
+\code{bits} kein Vielfaches von vier ist.
+\item \textbf{from\_twos\_complement (4 P):} unsigned Wert eines Musters
+entgegennehmen, signed Ganzzahl zurückgeben; gültige Eingaben prüfen;
+Vorzeichengrenze korrekt behandeln.
+\item \textbf{add\_with\_overflow\_flag (5 P):} signed Operanden prüfen;
+richtige Summe bilden; signed Overflow erkennen; Bitbreite begrenzen;
+\code{(gespeicherter signed Wert, bool)} zurückgeben.
+\end{itemize}
+\textbf{Für alle Funktionen:} \code{bits < 1} und Werte außerhalb des jeweiligen
+Eingabebereichs lösen \code{ValueError} aus. Ein Overflow der Summe bei gültigen
+Operanden löst dagegen keinen Fehler aus.
+
+\block{Erkläre zwei deiner eigenen Codezeilen}
+Wähle eine Zeile zur Bitbegrenzung und eine zur Interpretation oder
+Overflow-Erkennung. Schreibe jeweils: Was macht sie, und warum brauchen wir sie?
+Dies hilft bei der Beurteilung deines Praxiscodes, ohne zusätzliche Punkte.
+\antwort{35mm}
+
+\newpage
+\titlepagepart{06 / VERIFIKATION}{Tests und persönliche Auswertung}
+\aufgabe{7. Beweise, dass dein Code funktioniert}{10}
+Erstelle daneben \code{test\_abschluss\_tag04.py}. Importiere die Funktionen aus
+\code{abschluss\_tag04}. Schreibe mindestens \textbf{20 ausgeführte Testfälle};
+Parametrisierung ist erlaubt. Leite Erwartungen zuerst selbst her.
+
+\textbf{Abdeckung (6 P):} Je 1 Punkt pro Kategorie mit passenden Erwartungen:
+\begin{enumerate}
+\item Binär/Hex: Null, führende Nullen, oberer unsigned Rand.
+\item Hex: eine Bitbreite, die kein Vielfaches von vier ist.
+\item Dekodierung: größter positiver Wert, kleinster negativer Wert und $-1$.
+\item Addition: ohne Overflow sowie positiver und negativer signed Overflow.
+\item Mindestens ein gültiger Ein-Bit-Fall und ein Fall mit mehr als 64 Bits.
+\item Ungültige Bitbreite und ungültige unsigned sowie signed Eingaben.
+\end{enumerate}
+\textbf{Umsetzung (4 P):} Mindestens 20 Fälle (2), korrektes Prüfen von
+\code{ValueError} mit \code{pytest.raises} (1), vollständiger Testlauf und
+nachvollziehbare Dokumentation (1).
+
+\textbf{Import-Gerüst, keine fertigen Testfälle:}
+\begin{lstlisting}
+import pytest
+from abschluss_tag04 import (
+    to_bin, to_hex, from_twos_complement,
+    add_with_overflow_flag,
+)
+\end{lstlisting}
+\textbf{Im Terminal aus dem Tag-4-Ordner:}
+\begin{lstlisting}[language=bash]
+source "$HOME/.venvs/ai-hardware-day04/bin/activate"
+python -m pytest -q test_abschluss_tag04.py
+\end{lstlisting}
+Dieser Aufruf prüft gezielt deine Abschlussdatei. \code{assert} vergleicht
+Ist- und Sollwert. Für Fehlerfälle gehört der Funktionsaufruf in den Block
+\code{with pytest.raises(ValueError):}.
+
+\textbf{Testlauf:} Datum \rule{30mm}{0.3pt}\quad Bestanden \rule{15mm}{0.3pt}
+\quad Fehlgeschlagen \rule{15mm}{0.3pt}
+
+\textbf{Ein Fehler, den ich mit einem Test gefunden habe (oder ein gezielt
+abgesicherter Randfall):} Eingabe, Erwartung und Begründung.
+\antwort{12mm}
+
+\block{Abgabe und Rückblick}
+Gib das ausgefüllte Blatt bzw. deine nummerierten Antworten zusammen mit den
+zwei Python-Dateien ab. Markiere, wo du nachgeschlagen hast; das ist kein Fehler.
+\par
+\textbf{Das Warum kann ich jetzt so erklären:}\antwort{9mm}
+\textbf{Hier brauche ich noch eine Erklärung:}\antwort{9mm}
+\small Punkte: 1\,/8\quad 2\,/12\quad 3\,/20\quad 4\,/20\quad
+5\,/15\quad 6\,/15\quad 7\,/10\qquad Gesamt: \rule{12mm}{0.3pt}/100.
+\par Grundlage: Lernplan Woche 1, Tag 4; DDCA RISC-V Edition, Abschnitt 1.4;
+unsere Python-Übung. Die Punkte dienen der Rückmeldung, nicht einer Schulnote.
+\end{document}
