@@ -1,0 +1,280 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=18mm,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\setsansfont{lmsans10-regular.otf}[BoldFont=lmsans10-bold.otf]
+\setmonofont{lmmonolt10-regular.otf}[BoldFont=lmmonolt10-bold.otf,ItalicFont=lmmonolt10-oblique.otf]
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array,fancyhdr,enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{shapes.gates.logic.US,positioning,calc}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\sffamily AI-Hardware · Tag 5}
+\fancyhead[R]{\sffamily Abschluss · Lösungen}
+\fancyfoot[L]{\small Erst selbst bearbeiten, dann vergleichen}
+\fancyfoot[R]{\thepage\ / 4}
+\setlength{\emergencystretch}{3em}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\tabcolsep}{7pt}\renewcommand{\arraystretch}{1.18}
+\newcommand{\titlepagepart}[2]{\vspace*{-4mm}{\sffamily\small #1}\par{\sffamily\LARGE\bfseries #2}\par\vspace{2mm}}
+\newcommand{\block}[1]{\par\vspace{2mm}{\sffamily\large\bfseries #1}\par}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\N}{\mathrm{N}}
+\begin{document}
+
+\titlepagepart{01 / LÖSUNGEN ZU SEITE 1 UND 2}{Boolesche Algebra und De Morgan}
+Wo mehrere Wege zum Ziel führen, ist einer ausgeführt; ein anderer, korrekt
+begründeter Weg ist ebenso gültig. Entscheidend ist, dass jeder Schritt ein
+benanntes Gesetz benutzt.
+
+\block{1. Vereinfachen mit den Gesetzen}
+\textbf{a)}
+\begin{align*}
+Y&=\overline{A}B+AB+A\overline{B}\\
+ &=B(\overline{A}+A)+A\overline{B} &&\text{Distributivgesetz}\\
+ &=B\cdot 1+A\overline{B} &&\text{Komplement}\\
+ &=B+A\overline{B} &&\text{Neutrales Element}\\
+ &=A+B &&\text{Form } X+\overline{X}Y=X+Y \text{ mit } X=B,\ Y=A
+\end{align*}
+Die letzte Zeile ausführlich: $B+A\overline{B}=(B+A)(B+\overline{B})=(B+A)\cdot 1=A+B$.
+
+\textbf{b)}
+$(A+B)(A+\overline{B})\overset{\text{Distributiv}}{=}A+B\overline{B}
+\overset{\text{Komplement}}{=}A+0\overset{\text{Neutral}}{=}A.$
+Hier wird die OR-Form $A+BC=(A+B)(A+C)$ von rechts nach links gelesen. Die
+häufigste Falle ist, den Ausdruck wie gewöhnliches Ausmultiplizieren zu behandeln.
+
+\textbf{c)}
+$\overline{\overline{A}+\overline{B}}
+\overset{\text{De Morgan}}{=}\overline{\overline{A}}\cdot\overline{\overline{B}}
+\overset{\text{doppelte Negation}}{=}A\,B.$
+
+\textbf{d)} Es gilt $AB+\overline{A}C+BC=AB+\overline{A}C$; der Term $BC$ entfällt.
+$BC$ ist nur dann 1, wenn $B=C=1$. Ist zusätzlich $A=1$, liefert bereits $AB$
+eine 1; ist $A=0$, liefert bereits $\overline{A}C$ eine 1. $BC$ erzeugt also in
+keiner Zeile eine 1, die nicht ohnehin entsteht.
+
+\block{2. De Morgan sicher anwenden}
+\textbf{a)}
+\[
+\overline{A(B+\overline{C})}
+=\overline{A}+\overline{(B+\overline{C})}
+=\overline{A}+\overline{B}\cdot\overline{\overline{C}}
+=\overline{A}+\overline{B}\,C .
+\]
+Der Überstrich wird über \emph{jede} Verknüpfung einzeln gezogen, außen beginnend.
+
+\textbf{b)} Falsch ist die Annahme, De Morgan negiere lediglich alle Variablen.
+Tatsächlich wechselt auf \emph{jeder} Ebene auch die Verknüpfung:
+\[
+\overline{A+BC}=\overline{A}\cdot\overline{BC}
+=\overline{A}\,(\overline{B}+\overline{C})
+=\overline{A}\,\overline{B}+\overline{A}\,\overline{C}.
+\]
+Gegenbeispiel $A=0$, $B=1$, $C=1$: links $\overline{0+1}=0$, in der falschen
+Form $1+0+0=1$.
+
+\textbf{c)} Wird die Ausgangsblase über den Gatterkörper geschoben, tauscht der
+Gattertyp zwischen AND und OR, und an \emph{jedem} Eingang entsteht eine Blase.
+Aus NAND wird damit ein OR mit zwei Eingangsblasen.
+
+\block{3. Die NAND-Aufbauten als Gleichung}
+\begin{center}
+\begin{tabular}{llll}\toprule
+Funktion&Zwischenwerte&Ergebnis&NANDs\\\midrule
+NOT&---&$Y=\N(A,A)=\overline{AA}=\overline{A}$&1\\
+AND&$T=\N(A,B)$&$Y=\N(T,T)=\overline{\overline{AB}}=AB$&2\\
+OR&$P=\N(A,A),\ Q=\N(B,B)$&$Y=\N(P,Q)=\overline{\overline{A}\,\overline{B}}=A+B$&3\\\bottomrule
+\end{tabular}
+\end{center}
+NOT trägt die Idempotenz $AA=A$, AND die doppelte Negation, OR De Morgan.
+
+\newpage
+\titlepagepart{02 / LÖSUNGEN ZU SEITE 3}{Netze rechnen}
+
+\block{4. Ein unbekanntes Netz bestimmen}
+\textbf{a)} Mit $P=\N(A,A)=\overline{A}$ und $Q=\N(A,B)=\overline{AB}$:
+\begin{center}
+\begin{tabular}{cc|ccc}\toprule
+$A$&$B$&$P$&$Q$&$Y$\\\midrule
+0&0&1&1&0\\
+0&1&1&1&0\\
+1&0&0&1&1\\
+1&1&0&0&1\\\bottomrule
+\end{tabular}
+\end{center}
+Die Ergebnisspalte ist identisch mit $A$; $B$ hat keinen Einfluss auf $Y$.
+
+\textbf{b)}
+\[
+Y=\overline{P\,Q}=\overline{\overline{A}\cdot\overline{AB}}
+\;\overset{\text{De Morgan}}{=}\;\overline{\overline{A}}+\overline{\overline{AB}}
+\;\overset{\text{dopp. Negation}}{=}\;A+AB
+\;\overset{\text{Absorption}}{=}\;A .
+\]
+Die tragenden Gesetze sind De Morgan (mit doppelter Negation) und die
+Absorption $A+AB=A$.
+
+\textbf{c)} Drei Gatter können logisch dasselbe leisten wie eine durchgehende
+Leitung. Eine korrekte Wahrheitstabelle beweist nur die Funktion, nicht die
+Sparsamkeit des Aufbaus. Vor dem Bauen lohnt daher die algebraische
+Vereinfachung: überflüssige Gatter kosten Fläche und Energie, ohne etwas
+beizutragen. Umgekehrt gilt: Die Gatterzahl ist kein Maß für die Funktion.
+
+\block{5. Halbaddierer: die Brücke zu Tag 4}
+\textbf{a)}
+\begin{center}
+\begin{tabular}{cc|cc}\toprule
+$A$&$B$&$S$&$C_{\text{out}}$\\\midrule
+0&0&0&0\\
+0&1&1&0\\
+1&0&1&0\\
+1&1&0&1\\\bottomrule
+\end{tabular}
+\end{center}
+In der letzten Zeile ist $C_{\text{out}}S=10_2=2$, also das korrekte Ergebnis
+von $1+1$ in zwei Bits.
+
+\textbf{b)} Im XOR-Netz ist $T=\N(A,B)=\overline{AB}$ bereits vorhanden.
+Der Übertrag ist dessen Negation:
+\[
+C_{\text{out}}=\N(T,T)=\overline{\overline{AB}}=AB .
+\]
+Mit Mitbenutzung von $T$: $4+1=5$ NAND-Gatter für den ganzen Halbaddierer.
+Ohne Mitbenutzung, also XOR und AND getrennt aufgebaut: $4+2=6$ NAND-Gatter.
+
+\textbf{c)} An der Wahrheitstabelle ändert die Mitbenutzung nichts; die
+Funktion ist identisch. In der realen Schaltung treibt der Ausgang des ersten
+NAND nun drei statt zwei Eingänge. Der Fan-out und damit die kapazitive Last
+steigen, das Signal wird an dieser Stelle langsamer. Genau diesen Unterschied
+zeigt eine reine Logiksimulation nicht.
+
+\newpage
+\titlepagepart{03 / LÖSUNGEN ZU SEITE 4}{Pegel, Störabstand, Kennlinie}
+
+\block{6. Störabstände berechnen}
+\textbf{a)}
+\[
+NM_L=V_{IL}-V_{OL}=0{,}99-0{,}33=0{,}66\ \text{V},\qquad
+NM_H=V_{OH}-V_{IH}=2{,}97-1{,}98=0{,}99\ \text{V}.
+\]
+Beide Störabstände sind positiv, die Verbindung ist zulässig. Im ungünstigsten
+Fall darf ein LOW um bis zu 0,66~V angehoben und ein HIGH um bis zu 0,99~V
+abgesenkt werden, bevor der garantierte Bereich verlassen wird.
+
+\textbf{b)}
+\[
+NM_L=0{,}40-0{,}50=-0{,}10\ \text{V},\qquad
+NM_H=2{,}40-2{,}00=0{,}40\ \text{V}.
+\]
+$NM_L$ ist negativ: Der Treiber darf im schlechtesten Fall bis 0,50~V ausgeben,
+der Empfänger akzeptiert aber nur bis 0,40~V sicher als LOW. Ein korrekt
+gesendetes LOW kann damit als unbestimmt oder sogar als HIGH gelesen werden,
+und zwar ohne jede äußere Störung. Die HIGH-Seite bleibt mit 0,40~V Reserve in
+Ordnung; die Paarung ist in dieser Richtung dennoch unbrauchbar.
+
+\textbf{c)} Der Störabstand beschreibt nur die \emph{untere} Schranke für ein
+erkanntes HIGH. Zusätzlich gibt es eine \emph{obere} Grenze der zulässigen
+Eingangsspannung, die sich aus der Bauteilphysik ergibt (Schutzstrukturen,
+Gate-Oxid). 5,0~V an einem 3,3-V-Eingang ist logisch ein eindeutiges HIGH,
+überschreitet aber diese Grenze und kann den Eingang dauerhaft schädigen.
+Logische Gültigkeit und elektrische Zulässigkeit sind zwei getrennte Prüfungen.
+Nötig wäre ein Pegelwandler oder ein ausdrücklich 5-V-toleranter Eingang.
+
+\block{7. Von der Kennlinie zur Regel}
+\textbf{a)}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[->](0,0)--(5.2,0) node[right] {$V_{in}$};
+\draw[->](0,0)--(0,3.6) node[above] {$V_{out}$};
+\draw[thick](0,3).. controls (1.1,3) and (1.5,2.9)..(1.9,2.3)
+..controls(2.3,1.6)and(2.6,.5)..(3.1,.2)..controls(3.5,.05)and(4.2,0)..(4.8,0);
+\node[left]at(0,3){$V_{DD}$};\node[below]at(4.8,0){$V_{DD}$};
+\fill(1.9,2.3)circle(2pt);\fill(3.1,.2)circle(2pt);
+\draw[dashed](1.9,2.3)--(1.9,0) node[below]{$V_{IL}$};
+\draw[dashed](3.1,.2)--(3.1,0) node[below]{$V_{IH}$};
+\draw[dashed](1.9,2.3)--(0,2.3) node[left]{$V_{OH}$};
+\draw[dashed](3.1,.2)--(0,.2) node[left]{$V_{OL}$};
+\node[right] at (2.2,1.5) {Steigung $-1$};
+\end{tikzpicture}
+\end{center}
+An den beiden Punkten mit $\dfrac{dV_{out}}{dV_{in}}=-1$ werden die
+Eingangsschwellen $V_{IL}$ und $V_{IH}$ festgelegt; die zugehörigen
+Ausgangswerte liefern $V_{OH}$ und $V_{OL}$. Die Zeichnung ist schematisch und
+nicht maßstäblich.
+
+\textbf{b)} Static Discipline: Liegen an einem Gatter gültige, stabile
+Eingangspegel an, so liefert es nach seiner Einschwingzeit gültige
+Ausgangspegel. Sie macht ausdrücklich \emph{keine} Aussage über das Verhalten
+\emph{während} eines Übergangs; Verzögerung, Flankenform und die dabei
+durchlaufenen Zwischenspannungen sind nicht Teil dieser Regel. Ebenso wenig
+sagt sie etwas über Ströme, Lasten oder Leistungsaufnahme.
+
+\textbf{c)} Keine der drei Teilaufgaben lässt sich in Logisim-Evolution
+nachstellen. Das Werkzeug kennt nur die logischen Werte 0 und 1 sowie Fehler-
+und Undefiniert-Zustände, aber keine Spannungswerte, keine Eingangsschwellen
+und keine Bauteilgrenzen. Für Aufgabe 6 und 7 ist ngspice das passende
+Werkzeug; genau dafür steht der Samstagsblock mit dem CMOS-Inverter.
+
+\newpage
+\titlepagepart{04 / LÖSUNGEN ZU SEITE 5}{Praxis und Erfolgskontrolle}
+
+\block{8. Die offenen NAND-Aufbauten}
+\begin{center}
+\begin{tabular}{cc|ccccc}\toprule
+$A$&$B$&NOT ($Y=\overline{A}$)&AND&OR&XOR&NOR\\\midrule
+0&0&1&0&0&0&1\\
+0&1&\textemdash&0&1&1&0\\
+1&0&0&0&1&1&0\\
+1&1&\textemdash&1&1&0&0\\\bottomrule
+\end{tabular}
+\end{center}
+Erwartete NAND-Anzahl: NOT 1, AND 2, OR 3, XOR 4, NOR 4. Für NOR wird der
+NAND-basierte OR-Ausgang (3 Gatter) mit einem weiteren NAND invertiert.
+Zusammen sind das die fünf Aufbauten der Erfolgskontrolle.
+
+\textbf{Kontrollfrage:} Von links nach rechts vorgehen und zuerst den
+Zwischenwert prüfen, dessen Eingänge bereits korrekt sind, in den Netzen dieses
+Tages also $T$ beziehungsweise $P$ und $Q$. Ein Fehler pflanzt sich fort; der
+erste falsche Knoten von links lokalisiert die Ursache, während der Ausgang nur
+zeigt, \emph{dass} etwas falsch ist. Die häufigsten Ursachen sind eine Leitung,
+die optisch anliegt, aber keinen Verbindungspunkt hat, und eine Pin-Breite
+ungleich einem Bit.
+
+\block{9. Die beiden De-Morgan-Nachweise}
+\begin{center}
+\begin{tabular}{cc|cc|cc}\toprule
+&&\multicolumn{2}{c|}{$\overline{AB}$ gegen $\overline{A}+\overline{B}$}&\multicolumn{2}{c}{$\overline{A+B}$ gegen $\overline{A}\,\overline{B}$}\\
+$A$&$B$&$Y_1$&$Y_2$&$Y_1$&$Y_2$\\\midrule
+0&0&1&1&1&1\\
+0&1&1&1&0&0\\
+1&0&1&1&0&0\\
+1&1&0&0&0&0\\\bottomrule
+\end{tabular}
+\end{center}
+Zwei Boolesche Funktionen sind genau dann gleich, wenn sie für \emph{jede}
+Belegung denselben Wert liefern. Bei zwei Eingängen gibt es $2^2=4$ Belegungen;
+die vollständige Tabelle prüft alle Fälle und ist damit ein erschöpfender
+Beweis. Eine einzelne übereinstimmende Zeile schließt nichts aus: Auch die
+\emph{falsche} Gleichung $\overline{AB}=\overline{A}\,\overline{B}$ stimmt in
+den Zeilen $A=B=0$ und $A=B=1$ und scheitert erst bei 01 und 10.
+
+\block{10. Erfolgskontrolle}
+Der Plan verlangt fünf NAND-Schaltungen mit korrekter Wahrheitstabelle als
+\code{.circ} im Repository. Aus den vorhandenen Dateien sind XOR und NOR sowie
+beide De-Morgan-Vergleiche abgedeckt; neu hinzu kommen NOT, AND und OR. Die
+Sammeldatei \code{tag05\_nand.circ} führt alle fünf als getrennte
+Teilschaltungen zusammen, damit ein einziges Artefakt die Kontrolle erfüllt.
+Die Einzeldateien können daneben bestehen bleiben; das \code{README.md} sollte
+dann festhalten, welche Datei die maßgebliche ist.
+
+Der Ordner \code{01\_digital} ist derzeit noch nicht versioniert. Erst der
+Commit macht die Erfolgskontrolle nachprüfbar; ohne ihn ist die Arbeit zwar
+getan, aber nicht belegt.
+
+\textbf{Abschlussnotiz:} Individuell. Die ehrliche Antwort auf die Frage, was
+heute nur benutzt und nicht verstanden wurde, ist der eigentliche Wert des
+Tages. Sie gehört in \code{LOG.md} und bestimmt, was am Samstag im
+Konsolidierungsblock aufgearbeitet wird.
+
+\end{document}
