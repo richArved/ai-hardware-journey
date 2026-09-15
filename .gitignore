@@ -2,3 +2,6 @@
 __pycache__/
 .venv/
 *.pyc
+
+# Temporary PDF builds and preview images
+/tmp/
