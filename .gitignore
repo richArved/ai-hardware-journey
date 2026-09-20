@@ -5,3 +5,16 @@ __pycache__/
 
 # Temporary PDF builds and preview images
 /tmp/
+
+# Learning documents: publish only PDF summaries and cheatsheets.
+*.tex
+**/quellen/
+**/aufgaben/
+**/loesungen/
+*Aufgaben*.pdf
+*Abschlussarbeit*.pdf
+*Loesungen*.pdf
+AUFGABE.md
+LOESUNGEN.md
+# Standalone teaching illustration; kept locally.
+**/zusammenfassungen/abbildungen/
