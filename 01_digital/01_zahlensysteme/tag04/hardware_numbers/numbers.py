@@ -9,10 +9,7 @@ def to_bin(value: int, bits: int) -> str:
         raise ValueError("bits must be at least 1")
     if not (0 <= value < 2 ** bits):
         raise ValueError("value does not fit in the specified number of bits")
-
-bin(6)
-binary = bin(value)[2:]
-"110".zfill(4)
+    return bin(value)[2:].zfill(bits)
 
 
 def to_hex(value: int, bits: int) -> str:

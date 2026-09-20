@@ -1,8 +1,8 @@
 # Tag 5: Logikgatter und Boolesche Algebra
 
-Beginne mit `Tag05_Zusammenfassung.pdf`. Die acht Seiten enthalten eigene
+Beginne mit [Tag05_Zusammenfassung.pdf](zusammenfassungen/Tag05_Zusammenfassung.pdf). Die acht Seiten enthalten eigene
 Schaltungszeichnungen, Wahrheitstabellen, Formeln und den Praxisauftrag.
-Die bearbeitbare LaTeX-Quelle liegt daneben.
+Die bearbeitbare LaTeX-Quelle liegt in `quellen/`.
 
 ## Grundlage im vorgesehenen Buch
 
@@ -29,5 +29,44 @@ Diese Zusammenfassung enthält noch keine fertige Logisim-Schaltung.
 Aus diesem Ordner mit dem bereits installierten LaTeX-Compiler:
 
 ```sh
-tectonic Tag05_Zusammenfassung.tex
+tectonic --outdir zusammenfassungen quellen/Tag05_Zusammenfassung.tex
 ```
+
+## Materialien finden
+
+### Zusammenfassungen und Lernhilfen
+
+- [Tag05_Zusammenfassung.pdf](<zusammenfassungen/Tag05_Zusammenfassung.pdf>)
+- `zusammenfassungen/abbildungen/Inverter_Kennlinie_Erklaerung.svg` (lokal)
+
+### Aufgabenblätter
+
+- `aufgaben/Tag05_Abschluss_Aufgaben.pdf` (lokal)
+- `aufgaben/Tag05_Elektrische_Pegel_Aufgaben.pdf` (lokal)
+- `aufgaben/Tag05_Logik_Festigung_Aufgaben.pdf` (lokal)
+
+### Lösungen
+
+- `loesungen/Tag05_Abschluss_Loesungen.pdf` (lokal)
+- `loesungen/Tag05_Elektrische_Pegel_Loesungen.pdf` (lokal)
+
+### Schaltungen
+
+- [6a.dig](<praxis/digital/aufgabe06/6a.dig>)
+- [6b.dig](<praxis/digital/aufgabe06/6b.dig>)
+- [6c.dig](<praxis/digital/aufgabe06/6c.dig>)
+- [DeMorgan1_NOR.circ](<praxis/logisim/DeMorgan1_NOR.circ>)
+- [DeMorgan2_NAND.circ](<praxis/logisim/DeMorgan2_NAND.circ>)
+- [NandToNOR.circ](<praxis/logisim/NandToNOR.circ>)
+- [NandToXor.circ](<praxis/logisim/NandToXor.circ>)
+
+### LaTeX-Quellen
+
+- `quellen/Tag05_Abschluss_Aufgaben.tex` (lokal)
+- `quellen/Tag05_Abschluss_Loesungen.tex` (lokal)
+- `quellen/Tag05_Elektrische_Pegel_Aufgaben.tex` (lokal)
+- `quellen/Tag05_Elektrische_Pegel_Loesungen.tex` (lokal)
+- `quellen/Tag05_Logik_Festigung_Aufgaben.tex` (lokal)
+- `quellen/Tag05_Zusammenfassung.tex` (lokal)
+
+Die ausführbaren Python- bzw. SPICE-Dateien bleiben an ihren bisherigen Stellen. Terminalbefehle in bestehenden PDFs gelten damit weiterhin. Die PDFs wurden beim Sortieren nicht verändert; vorhandene Anmerkungen bleiben erhalten.

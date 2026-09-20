@@ -84,3 +84,22 @@ Doppelpunkt enthält, den Python für venv-Verzeichnisse nicht erlaubt.
 python3 -m venv "$HOME/.venvs/ai-hardware-day04"
 "$HOME/.venvs/ai-hardware-day04/bin/python" -m pip install -r requirements.txt
 ```
+
+## Materialien finden
+
+### Zusammenfassungen und Lernhilfen
+
+- [Tag04_Cheatsheet.pdf](<zusammenfassungen/Tag04_Cheatsheet.pdf>)
+
+### Aufgabenblätter
+
+- `aufgaben/Tag04_Abschlussarbeit.pdf` (lokal)
+- `aufgaben/Tag04_Festigung_Aufgaben.pdf` (lokal)
+
+### LaTeX-Quellen
+
+- `quellen/Tag04_Abschlussarbeit.tex` (lokal)
+- `quellen/Tag04_Cheatsheet.tex` (lokal)
+- `quellen/Tag04_Festigung_Aufgaben.tex` (lokal)
+
+Die ausführbaren Python- bzw. SPICE-Dateien bleiben an ihren bisherigen Stellen. Terminalbefehle in bestehenden PDFs gelten damit weiterhin. Die PDFs wurden beim Sortieren nicht verändert; vorhandene Anmerkungen bleiben erhalten.

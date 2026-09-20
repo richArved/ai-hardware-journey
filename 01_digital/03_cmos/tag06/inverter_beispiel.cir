@@ -1,0 +1,16 @@
+CMOS inverter - educational Level 1 model
+VDD vdd 0 DC 3.3
+VIN a 0 DC 0
+MP y a vdd vdd PM W=2u L=1u
+MN y a 0   0   NM W=1u L=1u
+CL y 0 10p
+.model NM NMOS (LEVEL=1 VTO=0.7 KP=100u LAMBDA=0.02)
+.model PM PMOS (LEVEL=1 VTO=-0.7 KP=50u LAMBDA=0.02)
+.control
+set wr_singlescale
+set wr_vecnames
+dc VIN 0 3.3 0.01
+wrdata inverter_dc.txt v(a) v(y)
+quit
+.endc
+.end
