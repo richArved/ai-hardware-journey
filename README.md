@@ -5,6 +5,7 @@
 - [Tag 4 – Zahlensysteme und Binärarithmetik](01_digital/01_zahlensysteme/tag04/README.md)
 - [Tag 5 – Logikgatter und Boolesche Algebra](01_digital/02_logikgatter/tag05/README.md)
 - [Tag 6 – CMOS und SPICE](01_digital/03_cmos/tag06/README.md)
+- [Tag 7 – Wahrheitstabelle zu SOP und POS](01_digital/04_sop_pos/tag07/README.md)
 - [SPICE-Grundlagen und RC-Übungen](02_physical/01_spice_basics/README.md)
 
 ## Einheitliche Ablage
