@@ -1,0 +1,40 @@
+Tag10 - Lehrmodell fuer einen statischen 1-Hazard, keine CMOS-Netzliste
+* Funktion: Y = A*B + !A*C. Korrektur: zusaetzlich B*C.
+* Pegel 0/1 V, Schaltschwelle 0.5 V. B=C=1 bleiben konstant.
+* A faellt nach 20 ns. Die DC-Arbeitspunktrechnung startet eingeschwungen.
+VA a 0 PULSE(1 0 20n 0.1n 0.1n 30n 80n)
+VB b 0 1
+VC c 0 1
+* Ein logisches NOT plus RC bildet absichtlich einen langsamen Weg.
+BN ni 0 V=1-v(a)
+RN ni na 4k
+CN na 0 1p
+* AND-Ausgaenge mit endlicher Flankenzeit (RC=0.5 ns).
+BP pi 0 V=(v(a)>0.5)&&(v(b)>0.5)
+RP pi p 500
+CP p 0 1p
+BQ qi 0 V=(v(na)>0.5)&&(v(c)>0.5)
+RQ qi q 500
+CQ q 0 1p
+BR ri 0 V=(v(b)>0.5)&&(v(c)>0.5)
+RR ri r 500
+CR r 0 1p
+* Unkorrigierte und korrigierte Schaltung unter identischen Bedingungen.
+BY yi 0 V=(v(p)>0.5)||(v(q)>0.5)
+RY yi y 500
+CY y 0 1p
+BF fi 0 V=(v(p)>0.5)||(v(q)>0.5)||(v(r)>0.5)
+RF fi fixed 500
+CF fixed 0 1p
+.control
+set wr_singlescale
+set wr_vecnames
+tran 0.02n 45n 0 0.02n
+meas tran glitch_start WHEN v(y)=0.5 FALL=1
+meas tran glitch_end WHEN v(y)=0.5 RISE=1
+meas tran glitch_width TRIG v(y) VAL=0.5 FALL=1 TARG v(y) VAL=0.5 RISE=1
+meas tran fixed_min MIN v(fixed) FROM=15n TO=40n
+wrdata results/spice_zeitverlauf.txt v(a) v(na) v(p) v(q) v(y) v(fixed)
+quit
+.endc
+.end

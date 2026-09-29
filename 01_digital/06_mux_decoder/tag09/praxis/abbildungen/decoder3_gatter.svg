@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Digital by H.Neemann -->
+<!-- created: Sun Sep 27 15:39:34 CEST 2026 -->
+
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="140.4mm"
+   height="114.6mm"
+   viewBox="121 -112 936 764">
+<g stroke-linecap="square">
+<path d="M 200,0 L 280,0 L 280,-80 L 420,-80 L 420,300 L 620,300" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,320 L 980,320" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 200,260 L 300,260 L 300,200 L 440,200 L 440,120 L 620,120" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,520 L 980,520" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 440,220 L 440,520 L 620,520" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 480,80 L 480,200 L 620,200" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,-80 L 980,-80" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 280,0 L 280,80 L 300,80" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 340,80 L 480,80 L 520,80 L 540,80 L 540,0" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 420,300 L 420,400 L 620,400" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,20 L 980,20" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 300,260 L 300,340 L 320,340" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 360,340 L 480,340 L 560,340 L 560,320 L 620,320" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 600,140 L 600,340 L 620,340" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 280,540 L 280,600 L 340,600" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 380,600 L 480,600 L 480,560 L 600,560 L 600,540 L 620,540" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,220 L 980,220" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 440,200 L 440,220 L 620,220" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 200,540 L 280,540 L 280,480 L 580,480 L 580,640 L 620,640" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,420 L 980,420" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 480,340 L 480,420 L 620,420" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 520,80 L 520,100 L 620,100" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,620 L 980,620" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 440,520 L 440,620 L 620,620" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 680,120 L 980,120" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 580,240 L 580,440 L 620,440" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 620,-80 L 560,-80 L 560,20 L 620,20" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 560,20 L 560,320" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 620,40 L 580,40 L 580,240 L 620,240" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 580,440 L 580,480" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 420,400 L 420,500" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 620,140 L 600,140 L 600,-60 L 620,-60" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 600,340 L 600,540" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 620,600 L 520,600 L 520,580 L 420,580 L 420,500 L 620,500" stroke="#000000" stroke-width="4.0" fill="none"/>
+<path d="M 620,0 L 540,0 L 540,-100 L 620,-100" stroke="#000000" stroke-width="4.0" fill="none"/>
+<g>
+<circle cx="280.0" cy="0.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="540.0" cy="0.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="560.0" cy="320.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="300.0" cy="260.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="440.0" cy="520.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="440.0" cy="200.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="600.0" cy="140.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="480.0" cy="80.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="520.0" cy="80.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="420.0" cy="400.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="560.0" cy="20.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="480.0" cy="340.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="600.0" cy="340.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="440.0" cy="220.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="280.0" cy="540.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="600.0" cy="540.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="580.0" cy="480.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="420.0" cy="300.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="580.0" cy="240.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="420.0" cy="500.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="580.0" cy="440.0" r="4.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 169,-15 L 199,-15 L 199,15 L 169,15 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="184.0" cy="0.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="155.0" y="9.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">A2</tspan></text>
+<circle cx="200.0" cy="0.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 169,245 L 199,245 L 199,275 L 169,275 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="184.0" cy="260.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="155.0" y="269.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">A1</tspan></text>
+<circle cx="200.0" cy="260.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 169,525 L 199,525 L 199,555 L 169,555 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="184.0" cy="540.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="end" x="155.0" y="549.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">A0</tspan></text>
+<circle cx="200.0" cy="540.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,-10 L 679,-10 L 679,50 L 621,50 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="12.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="0.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="20.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="40.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="20.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,90 L 679,90 L 679,150 L 621,150 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="112.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="100.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="120.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="140.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="120.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,190 L 679,190 L 679,250 L 621,250 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="212.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="200.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="220.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="240.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="220.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,290 L 679,290 L 679,350 L 621,350 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="312.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="300.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="320.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="340.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="320.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,390 L 679,390 L 679,450 L 621,450 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="412.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="400.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="420.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="440.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="420.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,490 L 679,490 L 679,550 L 621,550 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="512.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="500.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="520.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="540.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="520.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,590 L 679,590 L 679,650 L 621,650 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="612.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="600.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="620.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="640.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="620.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 621,-110 L 679,-110 L 679,-50 L 621,-50 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<text text-anchor="middle" x="650.0" y="-88.0" fill="#000000" style="font-size:24px">&amp;</text>
+<circle cx="620.0" cy="-100.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="-80.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="620.0" cy="-60.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="680.0" cy="-80.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 301,70 L 319,70 L 319,90 L 301,90 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="330.0" cy="80.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="300.0" cy="80.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="340.0" cy="80.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="-80.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="-80.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="-71.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y0</tspan></text>
+<circle cx="980.0" cy="-80.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="20.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="20.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="29.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y1</tspan></text>
+<circle cx="980.0" cy="20.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="120.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="120.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="129.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y2</tspan></text>
+<circle cx="980.0" cy="120.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="220.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="220.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="229.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y3</tspan></text>
+<circle cx="980.0" cy="220.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="320.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="320.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="329.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y4</tspan></text>
+<circle cx="980.0" cy="320.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="420.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="420.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="429.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y5</tspan></text>
+<circle cx="980.0" cy="420.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="520.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="520.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="529.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y6</tspan></text>
+<circle cx="980.0" cy="520.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<circle cx="996.0" cy="620.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="996.0" cy="620.0" r="15.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<text text-anchor="start" x="1025.0" y="629.0" fill="#000000" style="font-size:24px"><tspan style="font-style:italic;">Y7</tspan></text>
+<circle cx="980.0" cy="620.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 341,590 L 359,590 L 359,610 L 341,610 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="370.0" cy="600.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="340.0" cy="600.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="380.0" cy="600.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+<g>
+<path d="M 321,330 L 339,330 L 339,350 L 321,350 Z" stroke="#000000" stroke-width="4.0" fill="none"/>
+<circle cx="350.0" cy="340.0" r="9.0" stroke="#000000" stroke-width="4.0" fill="none" />
+<circle cx="320.0" cy="340.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+<circle cx="360.0" cy="340.0" r="2.0" stroke="#000000" stroke-width="4.0" fill="#000000" />
+</g>
+</g>
+</svg>

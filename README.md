@@ -7,6 +7,8 @@
 - [Tag 6 – CMOS und SPICE](01_digital/03_cmos/tag06/README.md)
 - [Tag 7 – Wahrheitstabelle zu SOP und POS](01_digital/04_sop_pos/tag07/README.md)
 - [Tag 8 – Karnaugh-Diagramme und Minimierung](01_digital/05_karnaugh/tag08/README.md)
+- [Tag 9 – Multiplexer, Decoder und Prioritätsencoder](01_digital/06_mux_decoder/tag09/README.md)
+- [Tag 10 – Zeitverhalten, Glitches und Hazards](01_digital/07_timing/tag10/README.md)
 - [SPICE-Grundlagen und RC-Übungen](02_physical/01_spice_basics/README.md)
 
 ## Einheitliche Ablage

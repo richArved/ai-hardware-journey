@@ -34,3 +34,40 @@ Motivation: Understand how hardware works instead of seeing it as a black box.
 ### Main takeaway
 
 A truth table tells me which logic value the output should have. The transistor circuit helps me understand how that value is produced. In the simulation, I can also see that the voltage does not change instantly. The output capacitor needs time to charge or discharge, and changing the transistor width changes how quickly that happens.
+
+## Weekly review — Learning Days 8–9 · September 27, 2026
+
+### What I built and practised
+
+- I simplified ten Boolean functions using Karnaugh maps and checked the results with `qm_referenz.py`.
+- I worked with Gray-code order, prime implicants and don't-cares, and learned the steps of the Quine–McCluskey algorithm.
+- I built a 2:1 multiplexer, a 4:1 multiplexer from gates, and a 4:1 multiplexer from three 2:1 multiplexers.
+- I also built a 3:8 decoder, an 8:3 priority encoder, and Majority3 and XOR3 using multiplexers.
+- During the Day 9 write-up, Codex ran the embedded Digital tests: all 8 rows passed for the 2:1 multiplexer and all 256 rows passed for the priority encoder. The later full test run also passed all 64 rows for each 4:1 multiplexer and all 8 decoder rows. Majority3 and XOR3 each failed all 8 rows because their outputs are inverted; these two circuits still need correcting.
+
+### What improved
+
+I can now apply many Boolean algebra rules from memory without looking them up. The exercises on paper generally feel easy, and I understand better how to turn a Boolean expression into a circuit.
+
+I also understand how a multiplexer selects an input, how a decoder selects an output, and how a priority encoder handles several active inputs.
+
+### What I still want to practise
+
+- I need to check my wiring more carefully. I still make careless mistakes when I try to move too quickly.
+- Python is still the hardest part for me. My own `qm_lernversion.py` is still a scaffold; `combine` and `covers` remain open. They were planned for Saturday, but completion is not yet documented.
+- I want to review Quine–McCluskey and correct Majority3 and XOR3 and rerun their tests.
+- I plan to spend an extra 10–15 minutes each day practising Python. After Module 1, I want to revisit the sections I have marked and rewrite them with what I have learned by then.
+
+### How this week went
+
+Day 9 took much longer than planned because I got sick. I could not concentrate for long periods, so I worked through small parts each day until I finished the exercises on Sunday. I do not find the topic itself particularly complicated, but I still need some review and more careful checking.
+
+I also spent too much time trying to get the Day 8 Python script and syntax perfect. I need a clearer stopping point so that I can come back to difficult parts later without holding up everything else.
+
+### Next steps
+
+Correct and retest the two inverted Day 9 circuits, continue the short Python practice sessions, and move on to Day 10. The Day 10 materials are prepared, but I have not completed that learning day yet.
+
+### Main takeaway
+
+Understanding the logic, writing the Python code and wiring the circuit are different skills. I can understand a solution on paper and still need help implementing it. I want to keep practising each part and be clear about what I have done myself and what still needs work.

@@ -1,0 +1,16 @@
+Full truth table: failed (100%)
+S2 S1 S0 Y
+0 0 0 E: 0 / F: 1
+0 0 1 E: 1 / F: 0
+0 1 0 E: 1 / F: 0
+0 1 1 E: 0 / F: 1
+1 0 0 E: 1 / F: 0
+1 0 1 E: 0 / F: 1
+1 1 0 E: 0 / F: 1
+1 1 1 E: 1 / F: 0
+
+Es sind Tests fehlgeschlagen.
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider (file:/Users/arvedvonwitzleben/Downloads/Digital/Digital.jar)
+WARNING: Please consider reporting this to the maintainers of class com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release

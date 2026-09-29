@@ -1,0 +1,47 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: tag10 - lehrmodell fuer einen statischen 1-hazard, keine cmos-netzliste
+
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+a                                            1
+b                                            1
+c                                            1
+ni                                           0
+na                                           0
+pi                                           1
+p                                            1
+qi                                           0
+q                                            0
+ri                                           1
+r                                            1
+yi                                           1
+y                                            1
+fi                                           1
+fixed                                        1
+bf#branch                                    0
+by#branch                                    0
+br#branch                                    0
+bq#branch                                    0
+bp#branch                                    0
+bn#branch                                    0
+vc#branch                                    0
+vb#branch                                    0
+va#branch                                    0
+
+
+No. of Data Rows : 2264
+glitch_start        =  2.07267e-08
+glitch_end          =  2.35048e-08
+glitch_width        =  2.77810e-09 targ=  2.35048e-08 trig=  2.07267e-08
+fixed_min           =  1.00000e+00 at=  2.00140e-08
+ngspice-47 done
