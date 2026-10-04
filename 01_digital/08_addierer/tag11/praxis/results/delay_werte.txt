@@ -1,0 +1,10 @@
+Delay model values generated with Python from delay_lernen.py.
+Ripple: N * 2 ns.
+Hierarchical lookahead/prefix: (ceil(log2(N)) + 2) * 1 ns.
+These are model assumptions, not measured circuit delays.
+
+N (bits) | Ripple (ns) | Hierarchical lookahead/prefix (ns)
+       4 |         8.0 |                               4.0
+      12 |        24.0 |                               6.0
+      32 |        64.0 |                               7.0
+      64 |       128.0 |                               8.0

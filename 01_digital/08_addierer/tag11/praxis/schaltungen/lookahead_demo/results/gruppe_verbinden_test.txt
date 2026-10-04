@@ -1,0 +1,9 @@
+Reference circuit: gruppe_verbinden.dig
+Result: PASS
+All 16 input combinations passed.
+SHA-256: e6d14eef1a43b67f6a46b6f1edb1c2e7cfab22f5a034e33098d6fa2e82879f0e
+Method: Existing pruefe_demo.py generated external Digital Testcases; native Digital CLI evaluated the unchanged circuits.
+Scope: G=GH OR (PH AND GL); P=PH AND PL.
+Timing: This Boolean check does not measure propagation delays.
+Digital runtime: /Users/arvedvonwitzleben/Desktop/Digital/Digital/target/Digital.jar
+Circuit file: unchanged.

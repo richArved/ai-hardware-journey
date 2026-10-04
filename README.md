@@ -9,6 +9,7 @@
 - [Tag 8 – Karnaugh-Diagramme und Minimierung](01_digital/05_karnaugh/tag08/README.md)
 - [Tag 9 – Multiplexer, Decoder und Prioritätsencoder](01_digital/06_mux_decoder/tag09/README.md)
 - [Tag 10 – Zeitverhalten, Glitches und Hazards](01_digital/07_timing/tag10/README.md)
+- [Tag 11: Addierer](01_digital/08_addierer/tag11/README.md)
 - [SPICE-Grundlagen und RC-Übungen](02_physical/01_spice_basics/README.md)
 
 ## Einheitliche Ablage

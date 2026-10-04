@@ -1,0 +1,9 @@
+Reference circuit: bit_gp.dig
+Result: PASS
+All 4 input combinations passed.
+SHA-256: 4b9291a4208ee5cad944fa799d4219cec3da3c258f678b06678c4e3877b31619
+Method: Existing pruefe_demo.py generated external Digital Testcases; native Digital CLI evaluated the unchanged circuits.
+Scope: G=A AND B; P=A OR B.
+Timing: This Boolean check does not measure propagation delays.
+Digital runtime: /Users/arvedvonwitzleben/Desktop/Digital/Digital/target/Digital.jar
+Circuit file: unchanged.

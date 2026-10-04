@@ -1,0 +1,32 @@
+Timing check: Lookahead_Vergleich_8bit.dig
+Result: PASS
+Current main-circuit SHA-256: 14d5140751fa68379d83905349a68defd79cc09d99508449e68026f5467aee6d
+Method: Native Digital timing simulation, ModelCreator.createModel(false, true), via the existing temporary TimingCheck harness.
+Digital runtime: /Users/arvedvonwitzleben/Desktop/Digital/Digital/target/Digital.jar
+Default gate delay: 10 ns; timing clock period: 2000 ns.
+Inputs were stabilized before each change. Times are relative to the changed input edge.
+Circuit files were not changed by the checks.
+
+Test 1: Only Cin changes.
+Initial inputs: A0..A7=1, B0..B7=0, Cin=0; A=255, B=0.
+Change: Cin from 0 to 1.
+C8_Ripple: 0 -> 1 at exactly 160 ns.
+C8_Block: 0 -> 1 at exactly 40 ns.
+C8_Gruppe: 0 -> 1 at exactly 20 ns.
+
+Test 2: Only A0 changes.
+Initial inputs: A0=0, A1..A7=1, B0=1, B1..B7=0, Cin=0; A=254, B=1.
+Change: A0 from 0 to 1; afterward A=255, B=1.
+C8_Ripple: 0 -> 1 at exactly 160 ns.
+C8_Block: 0 -> 1 at exactly 80 ns.
+C8_Gruppe: 0 -> 1 at exactly 80 ns.
+
+Each observed carry output showed exactly one transition and ended at 1.
+Both complete models stabilized at 160 ns; no simulation errors were observed.
+Scope: These are model delays for the two specified input changes, not physical hardware measurements or a general speed ratio.
+
+Dependency SHA-256 values:
+bit_gp.dig: 4b9291a4208ee5cad944fa799d4219cec3da3c258f678b06678c4e3877b31619
+carry_stufe.dig: a2fab90b85d723569c7e743610a5127d3a27864c3244a0a4b6bdc5eedde71818
+gruppe_verbinden.dig: e6d14eef1a43b67f6a46b6f1edb1c2e7cfab22f5a034e33098d6fa2e82879f0e
+block4_carry.dig: d79b7438cc8cb0f9e423d7cb1f23a2141eb58f82bc2d70a8415ef09998ad160a

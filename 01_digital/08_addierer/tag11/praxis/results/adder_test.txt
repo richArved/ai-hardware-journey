@@ -1,0 +1,20 @@
+Circuit: adder.dig
+Result: PASS for independent native-model verification.
+All 1024 combinations of the 10 physical input controls passed.
+Scope: This is a learning file with separate sum and carry experiments.
+Physical inputs: A, B, A1, B1, X, C_in, A2, C2, B2, C_in
+Unique input labels: 9; C_in is used twice.
+Outputs: S, C_out, C_out1, E
+Visual elements: 25; wires: 67
+SHA-256: a6a4164c68130c18a88fd5b695e4f8cb80d25c9fe9fbc5dcc3789f93afa13391
+Method: A temporary Java harness loaded the unchanged file into the native Digital Model. Each physical input was varied independently.
+Verified behavior:
+S = A XOR B XOR upper C_in at (520,0).
+C_out = (A1 AND B1) OR (X AND lower C_in at (140,480)).
+E = (A2+B2+C2) mod 2.
+C_out1 = floor((A2+B2+C2)/2).
+External Testcase: BLOCKED before evaluating the 512 proposed synchronized-input rows. Digital reports that signal C_in is used more than once.
+This file is not one full adder with a single common A/B/C_in interface. The native-model pass does not remove its duplicate-label limitation.
+Timing: Stable Boolean results only; propagation delays were not measured.
+Digital runtime: /Users/arvedvonwitzleben/Desktop/Digital/Digital/target/Digital.jar
+Circuit file: unchanged.

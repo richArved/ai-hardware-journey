@@ -1,0 +1,6 @@
+Python function check: delay_lernen.py
+SHA-256: 6dd4929aa0d55fd99019ef5334e97bbc130cd0892256ece879a0b79874db4359
+Command: python3 pruefe_delay.py
+Exit code: 0
+
+12 Funktionspruefungen bestanden. Keine Schaltungspruefung.

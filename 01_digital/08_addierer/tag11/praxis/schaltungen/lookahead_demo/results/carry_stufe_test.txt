@@ -1,0 +1,9 @@
+Reference circuit: carry_stufe.dig
+Result: PASS
+All 8 input combinations passed.
+SHA-256: a2fab90b85d723569c7e743610a5127d3a27864c3244a0a4b6bdc5eedde71818
+Method: Existing pruefe_demo.py generated external Digital Testcases; native Digital CLI evaluated the unchanged circuits.
+Scope: Cout=G OR (P AND Cin).
+Timing: This Boolean check does not measure propagation delays.
+Digital runtime: /Users/arvedvonwitzleben/Desktop/Digital/Digital/target/Digital.jar
+Circuit file: unchanged.

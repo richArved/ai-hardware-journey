@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='utf-8'?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>Description</string>
+      <string>H = hoeherer Abschnitt, L = niedrigerer Abschnitt. G = GH OR (PH AND GL); P = PH AND PL.</string>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>7</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>GH</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="0" z="false" />
+        </entry>
+        <entry>
+          <string>addValueToGraph</string>
+          <boolean>false</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="100" />
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PH</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="0" z="false" />
+        </entry>
+        <entry>
+          <string>addValueToGraph</string>
+          <boolean>false</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="220" />
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>GL</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="0" z="false" />
+        </entry>
+        <entry>
+          <string>addValueToGraph</string>
+          <boolean>false</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="340" />
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PL</string>
+        </entry>
+        <entry>
+          <string>InDefault</string>
+          <value v="0" z="false" />
+        </entry>
+        <entry>
+          <string>addValueToGraph</string>
+          <boolean>false</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="460" />
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes />
+      <pos x="340" y="220" />
+    </visualElement>
+    <visualElement>
+      <elementName>And</elementName>
+      <elementAttributes />
+      <pos x="340" y="440" />
+    </visualElement>
+    <visualElement>
+      <elementName>Or</elementName>
+      <elementAttributes />
+      <pos x="560" y="100" />
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>G</string>
+        </entry>
+        <entry>
+          <string>addValueToGraph</string>
+          <boolean>false</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="120" />
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>P</string>
+        </entry>
+        <entry>
+          <string>addValueToGraph</string>
+          <boolean>false</boolean>
+        </entry>
+      </elementAttributes>
+      <pos x="740" y="460" />
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>Zwei benachbarte Abschnitte zu einer Gruppe verbinden</string>
+        </entry>
+        <entry>
+          <string>textFontSize</string>
+          <int>17</int>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="30" />
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>G = GH OR (PH AND GL)</string>
+        </entry>
+        <entry>
+          <string>textFontSize</string>
+          <int>14</int>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="560" />
+    </visualElement>
+    <visualElement>
+      <elementName>Text</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Description</string>
+          <string>P = PH AND PL</string>
+        </entry>
+        <entry>
+          <string>textFontSize</string>
+          <int>14</int>
+        </entry>
+      </elementAttributes>
+      <pos x="80" y="600" />
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="80" y="100" />
+      <p2 x="560" y="100" />
+    </wire>
+    <wire>
+      <p1 x="80" y="220" />
+      <p2 x="200" y="220" />
+    </wire>
+    <wire>
+      <p1 x="200" y="220" />
+      <p2 x="340" y="220" />
+    </wire>
+    <wire>
+      <p1 x="200" y="220" />
+      <p2 x="200" y="440" />
+    </wire>
+    <wire>
+      <p1 x="200" y="440" />
+      <p2 x="340" y="440" />
+    </wire>
+    <wire>
+      <p1 x="80" y="340" />
+      <p2 x="280" y="340" />
+    </wire>
+    <wire>
+      <p1 x="280" y="340" />
+      <p2 x="280" y="260" />
+    </wire>
+    <wire>
+      <p1 x="280" y="260" />
+      <p2 x="340" y="260" />
+    </wire>
+    <wire>
+      <p1 x="80" y="460" />
+      <p2 x="280" y="460" />
+    </wire>
+    <wire>
+      <p1 x="280" y="460" />
+      <p2 x="280" y="480" />
+    </wire>
+    <wire>
+      <p1 x="280" y="480" />
+      <p2 x="340" y="480" />
+    </wire>
+    <wire>
+      <p1 x="400" y="240" />
+      <p2 x="500" y="240" />
+    </wire>
+    <wire>
+      <p1 x="500" y="240" />
+      <p2 x="500" y="140" />
+    </wire>
+    <wire>
+      <p1 x="500" y="140" />
+      <p2 x="560" y="140" />
+    </wire>
+    <wire>
+      <p1 x="620" y="120" />
+      <p2 x="740" y="120" />
+    </wire>
+    <wire>
+      <p1 x="400" y="460" />
+      <p2 x="740" y="460" />
+    </wire>
+  </wires>
+  <measurementOrdering />
+</circuit>

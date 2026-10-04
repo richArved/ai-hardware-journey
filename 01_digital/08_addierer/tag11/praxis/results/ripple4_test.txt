@@ -1,0 +1,12 @@
+Circuit: ripple4.dig
+Result: PASS
+All 512 input combinations passed.
+Inputs: C_in, B0, A0, A1, B1, A2, B2, A3, B3
+Outputs: S0, S1, S2, S3, C_out
+Visual elements: 18; wires: 41
+SHA-256: 27624599e95cfbf69cadd972f09416010de8ba3058bdaa01437dfe73985204ee
+Method: Python generated an external Digital Testcase; native Digital CLI checked all five outputs. The existing pruefe_schaltungen.py also passed unchanged.
+Scope: All 16 x 16 x 2 additions; S=(A+B+C_in) mod 16 and C_out=floor((A+B+C_in)/16). The saved circuit uses four built-in Add blocks.
+Timing: Stable Boolean results only; propagation delays were not measured.
+Digital runtime: /Users/arvedvonwitzleben/Desktop/Digital/Digital/target/Digital.jar
+Circuit file: unchanged.
