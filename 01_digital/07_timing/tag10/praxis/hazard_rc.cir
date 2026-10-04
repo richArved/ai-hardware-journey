@@ -3,6 +3,7 @@ Tag10 - Lehrmodell fuer einen statischen 1-Hazard, keine CMOS-Netzliste
 * Pegel 0/1 V, Schaltschwelle 0.5 V. B=C=1 bleiben konstant.
 * A faellt nach 20 ns. Die DC-Arbeitspunktrechnung startet eingeschwungen.
 VA a 0 PULSE(1 0 20n 0.1n 0.1n 30n 80n)
+* VB & VC liegen dauerhaft fest auf logisch High (1V)
 VB b 0 1
 VC c 0 1
 * Ein logisches NOT plus RC bildet absichtlich einen langsamen Weg.
@@ -35,6 +36,7 @@ meas tran glitch_end WHEN v(y)=0.5 RISE=1
 meas tran glitch_width TRIG v(y) VAL=0.5 FALL=1 TARG v(y) VAL=0.5 RISE=1
 meas tran fixed_min MIN v(fixed) FROM=15n TO=40n
 wrdata results/spice_zeitverlauf.txt v(a) v(na) v(p) v(q) v(y) v(fixed)
-quit
+plot v(a) v(y) v(fixed)
+*quit
 .endc
 .end
